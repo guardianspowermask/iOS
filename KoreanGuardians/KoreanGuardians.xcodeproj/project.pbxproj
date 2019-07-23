@@ -14,6 +14,12 @@
 		3B775C8922E7005B00926A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8722E7005B00926A8C /* LaunchScreen.storyboard */; };
 		3B775C9622E71CD700926A8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C9822E71CD700926A8C /* InfoPlist.strings */; };
 		3B775CA022E728AD00926A8C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C9F22E728AD00926A8C /* .swiftlint.yml */; };
+		3B775CA322E72BD400926A8C /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775CA222E72BD400926A8C /* LaunchScreenViewController.swift */; };
+		3B775D1522E7317500926A8C /* meow_box_splash_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D1422E7317500926A8C /* meow_box_splash_4.json */; };
+		3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1A22E7334300926A8C /* NibLoadable.swift */; };
+		3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */; };
+		3B775D2122E74CD400926A8C /* pumped_up.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D2022E74CD300926A8C /* pumped_up.json */; };
+		3B775D2322E74D2D00926A8C /* finger.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D2222E74D2D00926A8C /* finger.json */; };
 		8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +38,12 @@
 		3B775C9B22E71E1B00926A8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3B775C9D22E71E2900926A8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3B775C9F22E728AD00926A8C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		3B775CA222E72BD400926A8C /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		3B775D1422E7317500926A8C /* meow_box_splash_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meow_box_splash_4.json; sourceTree = "<group>"; };
+		3B775D1A22E7334300926A8C /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		3B775D2022E74CD300926A8C /* pumped_up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pumped_up.json; sourceTree = "<group>"; };
+		3B775D2222E74D2D00926A8C /* finger.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = finger.json; sourceTree = "<group>"; };
 		516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.debug.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.debug.xcconfig"; sourceTree = "<group>"; };
 		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,8 +83,11 @@
 		3B775C7D22E7005A00926A8C /* KoreanGuardians */ = {
 			isa = PBXGroup;
 			children = (
+				3B775D2422E74D6F00926A8C /* Animations */,
+				3B775D1922E7333400926A8C /* Common */,
+				3B775D1E22E7342300926A8C /* Extensions */,
+				3B775D1F22E7351300926A8C /* ViewController */,
 				3B775C7E22E7005A00926A8C /* AppDelegate.swift */,
-				3B775C8022E7005A00926A8C /* ViewController.swift */,
 				3B775C8222E7005A00926A8C /* Main.storyboard */,
 				3B775C8522E7005B00926A8C /* Assets.xcassets */,
 				3B775C8722E7005B00926A8C /* LaunchScreen.storyboard */,
@@ -80,6 +95,41 @@
 				3B775C9822E71CD700926A8C /* InfoPlist.strings */,
 			);
 			path = KoreanGuardians;
+			sourceTree = "<group>";
+		};
+		3B775D1922E7333400926A8C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3B775D1A22E7334300926A8C /* NibLoadable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3B775D1E22E7342300926A8C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3B775D1F22E7351300926A8C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B775CA222E72BD400926A8C /* LaunchScreenViewController.swift */,
+				3B775C8022E7005A00926A8C /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3B775D2422E74D6F00926A8C /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				3B775D2022E74CD300926A8C /* pumped_up.json */,
+				3B775D1422E7317500926A8C /* meow_box_splash_4.json */,
+				3B775D2222E74D2D00926A8C /* finger.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		7DF62C6EE5E77B61A082ACED /* Frameworks */ = {
@@ -164,8 +214,11 @@
 				3B775CA022E728AD00926A8C /* .swiftlint.yml in Resources */,
 				3B775C8922E7005B00926A8C /* LaunchScreen.storyboard in Resources */,
 				3B775C9622E71CD700926A8C /* InfoPlist.strings in Resources */,
+				3B775D1522E7317500926A8C /* meow_box_splash_4.json in Resources */,
 				3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */,
 				3B775C8422E7005A00926A8C /* Main.storyboard in Resources */,
+				3B775D2322E74D2D00926A8C /* finger.json in Resources */,
+				3B775D2122E74CD400926A8C /* pumped_up.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B775C8122E7005A00926A8C /* ViewController.swift in Sources */,
+				3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */,
+				3B775CA322E72BD400926A8C /* LaunchScreenViewController.swift in Sources */,
 				3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */,
+				3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
