@@ -13,6 +13,7 @@
 		3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8522E7005B00926A8C /* Assets.xcassets */; };
 		3B775C8922E7005B00926A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8722E7005B00926A8C /* LaunchScreen.storyboard */; };
 		3B775C9622E71CD700926A8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C9822E71CD700926A8C /* InfoPlist.strings */; };
+		8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,9 @@
 		3B775C9922E71CE500926A8C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3B775C9B22E71E1B00926A8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3B775C9D22E71E2900926A8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.debug.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.debug.xcconfig"; sourceTree = "<group>"; };
+		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +52,8 @@
 			children = (
 				3B775C7D22E7005A00926A8C /* KoreanGuardians */,
 				3B775C7C22E7005A00926A8C /* Products */,
+				BC2578FD2E596D5203C462E9 /* Pods */,
+				7DF62C6EE5E77B61A082ACED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +79,24 @@
 			path = KoreanGuardians;
 			sourceTree = "<group>";
 		};
+		7DF62C6EE5E77B61A082ACED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC2578FD2E596D5203C462E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */,
+				ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B775C8D22E7005B00926A8C /* Build configuration list for PBXNativeTarget "KoreanGuardians" */;
 			buildPhases = (
+				415E39B7D3B555C540AFFF3E /* [CP] Check Pods Manifest.lock */,
 				3B775C7722E7005A00926A8C /* Sources */,
 				3B775C7822E7005A00926A8C /* Frameworks */,
 				3B775C7922E7005A00926A8C /* Resources */,
+				9D9C8AE69095D996926480B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		415E39B7D3B555C540AFFF3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KoreanGuardians-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D9C8AE69095D996926480B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B775C7722E7005A00926A8C /* Sources */ = {
@@ -305,6 +374,7 @@
 		};
 		3B775C8E22E7005B00926A8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -323,6 +393,7 @@
 		};
 		3B775C8F22E7005B00926A8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
