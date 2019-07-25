@@ -154,7 +154,7 @@
             </objects>
             <point key="canvasLocation" x="1011.5942028985507" y="26.785714285714285"/>
         </scene>
-        <!--항의하기-->
+        <!--제품 목록-->
         <scene sceneID="v6U-Og-y2w">
             <objects>
                 <viewController storyboardIdentifier="ItemViewController" id="soK-vH-n9C" customClass="ItemViewController" customModule="KoreanGuardians" customModuleProvider="target" sceneMemberID="viewController">
@@ -168,15 +168,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ihC-fR-bbg"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R07-hB-nEV">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="gdZ-tM-5Jh" customClass="CategoryLayout" customModule="KoreanGuardians" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="QBh-2d-NSR" customClass="ItemCollectionViewCell" customModule="KoreanGuardians" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="9" width="53" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="53" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="53" height="26"/>
@@ -375,7 +370,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="50Y-Oh-hfX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="항의하기" id="fMw-Wo-4J8">
+                    <navigationItem key="navigationItem" title="제품 목록" id="fMw-Wo-4J8">
                         <barButtonItem key="backBarButtonItem" title=" " id="ji9-6u-OVH"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

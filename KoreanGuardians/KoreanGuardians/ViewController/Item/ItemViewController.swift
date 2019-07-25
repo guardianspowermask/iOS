@@ -18,6 +18,9 @@ class ItemViewController: UIViewController, NibLoadable {
     var items: [Item] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let layout = collectionView.collectionViewLayout as? CategoryLayout {
+            layout.delegate = self
+        }
         setCollectionView()
         setTableView()
         selectInitialCategory()
@@ -83,6 +86,13 @@ extension ItemViewController: UICollectionViewDelegateFlowLayout {
     //cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 55, height: 26)
+    }
+}
+
+extension ItemViewController: CategoryLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        widthForCategoryAtIndexPath indexPath: IndexPath) -> CGFloat {
+        return CGFloat(((categories[indexPath.item].name.count)*14)+24)
     }
 }
 

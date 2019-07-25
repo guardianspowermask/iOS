@@ -28,6 +28,7 @@ class ItemCollectionViewCell: UICollectionViewCell, NibLoadable {
     override var isSelected: Bool {
         didSet {
             self.backView.backgroundColor = self.isSelected ? #colorLiteral(red: 0.1411764706, green: 0.537254902, blue: 1, alpha: 1) : #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
+            self.categoryLabel.textColor = self.isSelected ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1)
         }
     }
 }
