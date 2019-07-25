@@ -14,7 +14,11 @@ class CategoryViewController: UIViewController {
     @IBOutlet private weak var keywordLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var emailNewItemButton: UIButton!
-    var categories: [Category] = []
+    var categories: [Category] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
@@ -24,17 +28,11 @@ class CategoryViewController: UIViewController {
         setLabelAttr()
         setButtonAttr()
         setCollectionView()
-        addSampleData()
+        getCategories()
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
-    }
-    func addSampleData() {
-        let mocci = Category(categoryIdx: 0, name: "모찌", itemCnt: 1, img: "https://4guardians.s3.ap-northeast-2.amazonaws.com/guardians/2019/07/25/cat.jpeg", replaceWords: ["찹쌀", "찰떡"])
-        let ramen =  Category(categoryIdx: 1, name: "라멘라멘라멘", itemCnt: 2, img: "https://4guardians.s3.ap-northeast-2.amazonaws.com/guardians/2019/07/25/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202019-04-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%206.24.08.png", replaceWords: ["라면", "일본 라면"])
-        let whole = Category(categoryIdx: 2, name: "전체전체", itemCnt: 2, img: "goods/2019/07/25/%E1%84%82%E1%85%A3%E1%84%8B%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%B5%20%E1%84%82%E1%85%A1%E1%84%8B%E1%85%B5.jpg", replaceWords: ["라면", "일본 라면"])
-        categories.append(contentsOf: [mocci, ramen, whole, mocci, ramen, whole, mocci, ramen, whole])
     }
     func setLabelAttr() {
         let attributedString = NSMutableAttributedString(string: "키워드를\n선택하세요")
@@ -64,8 +62,9 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let itemVC = mainStoryboard.viewController(ItemViewController.self)
-        itemVC.selectedCategoryIdx = indexPath.row
+        itemVC.selectedCategoryRow = indexPath.row
         itemVC.categories = self.categories
+        itemVC.selectedCategoryIdx = self.categories[indexPath.row].categoryIdx
         self.show(itemVC, sender: nil)
     }
 }
@@ -106,5 +105,28 @@ extension CategoryViewController: MessageUsable {
     }
     private func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
             self.mailComposeController_(controller, didFinishWith: result, error: error)
+    }
+}
+
+// MARK: network
+extension CategoryViewController {
+    func getCategories() {
+        NetworkManager.sharedInstance.getCategory { [weak self] (res) in
+            guard let `self` = self else {
+                return
+            }
+            switch res {
+            case .success(let categories):
+                self.categories = categories
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail:
+                    self.simpleAlert(title: "오류", message: "네트워크 연결상태를 확인해주세요")
+                case .networkError(let msg):
+                    self.simpleAlert(title: "오류", message: "잠시후 다시 시도해주세요")
+                    print("error log is "+msg)
+                }
+            }
+        }
     }
 }

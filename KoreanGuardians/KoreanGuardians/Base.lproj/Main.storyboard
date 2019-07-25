@@ -376,6 +376,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="aYC-Gz-ODk" id="Q2a-Hh-xGR"/>
+                        <outlet property="itemCountLabel" destination="G71-9X-CQG" id="K5Y-PJ-rU8"/>
+                        <outlet property="orderLabel" destination="ZoD-OY-Vy2" id="1SF-bO-OEs"/>
                         <outlet property="tableView" destination="vc4-rd-9Dh" id="Hhq-0p-hj3"/>
                     </connections>
                 </viewController>
@@ -426,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syR-FH-vMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1072" y="27"/>
+            <point key="canvasLocation" x="-659" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ct8-UR-fxp">
