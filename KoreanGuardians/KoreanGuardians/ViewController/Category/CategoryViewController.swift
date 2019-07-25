@@ -88,7 +88,7 @@ extension CategoryViewController: MessageUsable {
         let recipents = "gaksital.official@gmail.com"
         let subjectTitle = "[제보] 일본어 사용 제품 제보합니다!"
         let bodyTxt = """
-                        <p>이름: 제품명 ex) CU 리얼초코모찌롤</p>
+                        <p>제품명: ex) CU 리얼초코모찌롤</p>
                         <p>제조사: ex) CJ 푸드빌</p>
                         <p>한 마디:                 </p>
                         <p>위 제품을 제보합니다. 각시탈 파이팅 :)</p>
