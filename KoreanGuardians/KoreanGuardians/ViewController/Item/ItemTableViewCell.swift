@@ -25,7 +25,7 @@ class ItemTableViewCell: UITableViewCell, NibLoadable {
     func setButtonAttr() {
         self.reporntButton.addTarget(self, action: #selector(report), for: .touchUpInside)
     }
-    func setViewRadius(){
+    func setViewRadius() {
         self.itemImgView.makeRounded(cornerRadius: 20)
         self.blackBackgroundView.makeRounded(cornerRadius: 20)
     }
