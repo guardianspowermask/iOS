@@ -36,7 +36,7 @@ class ItemTableViewCell: UITableViewCell, NibLoadable {
         reportItemBlock = callback
     }
     func configure(data: Item, row: Int) {
-        //self.itemImgView.kf.setImage(with: URL(string: data.img))
+        self.itemImgView.kf.setImage(with: URL(string: data.img))
         self.itemNameLabel.text = data.name
         self.itemStoreLabel.text = data.store
         self.itemReportCountLabel.text = data.reportCnt.description

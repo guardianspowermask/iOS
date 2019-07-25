@@ -38,7 +38,7 @@ class LaunchScreenViewController: UIViewController {
         })
     }
     func goToMainVC() {
-        guard let mainVC = self.mainStoryboard?.viewController(ViewController.self) else {
+        guard let mainVC = mainStoryboard?.instantiateViewController(withIdentifier: "mainNavi") else {
             return
         }
         self.present(mainVC, animated: true, completion: nil)
@@ -48,7 +48,6 @@ class LaunchScreenViewController: UIViewController {
 extension LaunchScreenViewController {
     enum AnimationJson: String, CaseIterable {
         case pumpedUp = "pumped_up"
-        case finger
         case meowBoxSplash4 = "meow_box_splash_4"
     }
 }

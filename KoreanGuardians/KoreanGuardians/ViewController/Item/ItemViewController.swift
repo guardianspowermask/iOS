@@ -13,18 +13,24 @@ class ItemViewController: UIViewController, NibLoadable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var tableView: UITableView!
-    var selectedCategoryIdx: Int = 0
+    @IBOutlet private weak var itemCountLabel: UILabel!
+    @IBOutlet private weak var orderLabel: UILabel!
     var categories: [Category] = []
-    var items: [Item] = []
+    var items: [Item] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var selectedCategoryRow: Int = 0
+    var selectedCategoryIdx: Int = 0
+    var selectedOrder: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let layout = collectionView.collectionViewLayout as? CategoryLayout {
-            layout.delegate = self
-        }
+        setCollectionViewLayout()
         setCollectionView()
         setTableView()
         selectInitialCategory()
-        addItemSampleData()
+        getItems()
     }
     @IBAction func sortAction(_ sender: Any) {
         let alert = UIAlertController(title: "정렬기준을 선택하세요", message: nil, preferredStyle: .actionSheet)
@@ -44,18 +50,13 @@ class ItemViewController: UIViewController, NibLoadable {
         alert.addAction(nameSort)
         alert.addAction(cancleAction)
         func sortAction(sort: Int) {
-            print(sort)
+            selectedOrder = sort
+            getItems()
         }
         present(alert, animated: true)
     }
-    func addItemSampleData() {
-        let mocci1 = Item(itemIdx: 0, name: "모찌1", img: "img", reportCnt: 0, store: "씨유", email: "", facebook: "100010023481570")
-        let mocci2 = Item(itemIdx: 1, name: "모찌2", img: "img", reportCnt: 0, store: "gs", email: "rkdthd1234@naver.com", facebook: "100010023481570")
-        let mocci3 = Item(itemIdx: 2, name: "모찌3", img: "img", reportCnt: 0, store: "711", email: "rkdthd1234@naver.com", facebook: "")
-        items.append(contentsOf: [mocci1, mocci2, mocci3])
-    }
     func selectInitialCategory() {
-        self.collectionView.selectItem(at: IndexPath(item: selectedCategoryIdx, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        self.collectionView.selectItem(at: IndexPath(item: selectedCategoryRow, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     func setCollectionView() {
         collectionView.delegate = self
@@ -64,6 +65,11 @@ class ItemViewController: UIViewController, NibLoadable {
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    func setCollectionViewLayout() {
+        if let layout = collectionView.collectionViewLayout as? CategoryLayout {
+            layout.delegate = self
+        }
     }
 }
 
@@ -78,7 +84,8 @@ extension ItemViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-        print("select")
+        selectedCategoryIdx = categories[indexPath.row].categoryIdx
+        getItems()
     }
 }
 
@@ -106,7 +113,7 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ItemViewController {
+extension ItemViewController: MailUsable {
     func reportItem(row: Int, itemIdx: Int) {
         let bodyTxt = """
         <p>안녕하세요,</p>
@@ -124,20 +131,16 @@ extension ItemViewController {
         } else if !items[row].facebook.isEmpty {
             //facebook
             UIPasteboard.general.string = bodyTxt.html2String
-            self.simpleAlert(title: "샘플 메시지가 복사되었습니다.\n붙여넣기를 해보세요. :)", message: "") { (_) in
+            self.simpleAlert(title: "샘플 메시지가 복사되었습니다.\n붙여넣기를 해보세요. :)", message: "") { [weak self] (_) in
+                guard let `self` = self else {
+                    return
+                }
                 self.sendFM(fbId: self.items[row].facebook)
             }
         } else {
             //둘다 없음
             self.simpleAlert(title: "오류", message: "항의 링크를 제공하고 있지 않는 업체입니다.")
         }
-    }
-}
-
-// MARK: 이메일
-extension ItemViewController: MessageUsable {
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        self.mailComposeController_(controller, didFinishWith: result, error: error)
     }
 }
 
@@ -165,5 +168,41 @@ extension ItemViewController {
                 }
             }
         })
+    }
+}
+
+// MARK: network
+extension ItemViewController {
+    func getItems() {
+        NetworkManager.sharedInstance.getItem(categoryIdx: selectedCategoryIdx, order: selectedOrder) { [weak self] (res) in
+            guard let `self` = self else {
+                return
+            }
+            switch res {
+            case .success(let data):
+                self.items = data.items
+                self.itemCountLabel.text = data.totalCnt.description+"건"
+                var orderTxt = ""
+                switch self.selectedOrder {
+                case 0:
+                   orderTxt = "인기순"
+                case 1:
+                   orderTxt = "최신순"
+                case 2:
+                   orderTxt = "이름순"
+                default:
+                    break
+                }
+                self.orderLabel.text = orderTxt
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail:
+                    self.simpleAlert(title: "오류", message: "네트워크 연결상태를 확인해주세요")
+                case .networkError(let msg):
+                    self.simpleAlert(title: "오류", message: "잠시후 다시 시도해주세요")
+                    print("error log is "+msg)
+                }
+            }
+        }
     }
 }
