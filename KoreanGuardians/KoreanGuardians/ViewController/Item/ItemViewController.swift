@@ -117,9 +117,16 @@ extension ItemViewController {
     func reportItem(row: Int, itemIdx: Int) {
         if !items[row].email.isEmpty {
             //email
+            let itemName = items[row].name
             let recipents = items[row].email
-            let subjectTitle = "항의합니다!"
-            let bodyTxt = "바꿔주세요!!"
+            let subjectTitle = "[\(itemName)] 제품명에 대해서 건의합니다."
+            let bodyTxt = """
+            <p>안녕하세요,</p>
+            <p>귀사의 (\(itemName)) 제품명에 대해 건의할 사항이 있습니다.</p>
+            <p>충분히 우리말로 만들 수 있는 제품명에 굳이 일본어를 사용할 필요가 없다고 생각합니다.</p>
+            <p>고작 하나의 제품 이름일 뿐이라고 생각하지 말고 언어 사용의 중요성에 대해 인지하시길 바랍니다.</p>
+            <p>감사합니다 :)</p>
+            """
             self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
         } else if !items[row].facebook.isEmpty {
             //facebook
