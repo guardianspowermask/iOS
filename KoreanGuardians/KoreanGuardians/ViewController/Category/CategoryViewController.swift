@@ -104,7 +104,7 @@ extension CategoryViewController: MessageUsable {
                       """
         self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
     }
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    private func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
             self.mailComposeController_(controller, didFinishWith: result, error: error)
     }
 }

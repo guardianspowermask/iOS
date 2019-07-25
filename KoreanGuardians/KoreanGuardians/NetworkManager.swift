@@ -11,12 +11,12 @@ import Moya
 
 struct NetworkManager: Networkable {
     static let sharedInstance = NetworkManager()
-    let provider = MoyaProvider<JungnamiAPI>()
+    let provider = MoyaProvider<GuardiansAPI>()
 }
 
 //pms
 extension NetworkManager {
-   func getCategory(completion: @escaping (NetworkResult<[Category]>) -> ()) {
+   func getCategory(completion: @escaping (NetworkResult<[Category]>) -> Void) {
         fetchData(api: .getCategory, networkData: CategoryVO.self) { (result) in
             switch result {
             case .success(let successResult):
@@ -31,7 +31,7 @@ extension NetworkManager {
             }
         }
     }
-    func getItem(categoryIdx: Int, order: Int, completion: @escaping (NetworkResult<ItemData>) -> ()) {
+    func getItem(categoryIdx: Int, order: Int, completion: @escaping (NetworkResult<ItemData>) -> Void) {
         fetchData(api: .getItem(categoryIdx: categoryIdx, order: order), networkData: ItemVO.self) { (result) in
             switch result {
             case .success(let successResult):

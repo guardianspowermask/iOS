@@ -10,13 +10,13 @@ import Moya
 import SwiftyJSON
 
 protocol Networkable {
-    var provider : MoyaProvider<JungnamiAPI>{ get }
-    func getCategory(completion: @escaping (NetworkResult<[Category]>) -> ())
-    func getItem(categoryIdx: Int, order: Int, completion: @escaping (NetworkResult<ItemData>) -> ())
+    var provider: MoyaProvider<GuardiansAPI> { get }
+    func getCategory(completion: @escaping (NetworkResult<[Category]>) -> Void)
+    func getItem(categoryIdx: Int, order: Int, completion: @escaping (NetworkResult<ItemData>) -> Void)
 }
 
 extension Networkable {
-    func fetchData<T: Codable>(api : JungnamiAPI, networkData : T.Type, completion : @escaping (NetworkResult<(resCode : Int, resResult : T)>)->Void){
+    func fetchData<T: Codable>(api: GuardiansAPI, networkData: T.Type, completion: @escaping (NetworkResult<(resCode: Int, resResult: T)>) -> Void) {
         provider.request(api) { (result) in
             switch result {
             case let .success(res) :

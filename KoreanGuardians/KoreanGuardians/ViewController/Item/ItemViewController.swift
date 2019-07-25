@@ -124,7 +124,10 @@ extension ItemViewController {
         } else if !items[row].facebook.isEmpty {
             //facebook
             UIPasteboard.general.string = bodyTxt.html2String
-            self.simpleAlert(title: "샘플 메시지가 복사되었습니다.\n붙여넣기를 해보세요. :)", message: "") { (_) in
+            self.simpleAlert(title: "샘플 메시지가 복사되었습니다.\n붙여넣기를 해보세요. :)", message: "") { [weak self] (_) in
+                guard let `self` = self else {
+                    return
+                }
                 self.sendFM(fbId: self.items[row].facebook)
             }
         } else {
@@ -136,7 +139,7 @@ extension ItemViewController {
 
 // MARK: 이메일
 extension ItemViewController: MessageUsable {
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    private func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         self.mailComposeController_(controller, didFinishWith: result, error: error)
     }
 }
