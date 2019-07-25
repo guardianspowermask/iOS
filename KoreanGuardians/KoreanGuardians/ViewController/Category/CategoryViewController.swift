@@ -38,7 +38,7 @@ class CategoryViewController: UIViewController {
         let attributedString = NSMutableAttributedString(string: "키워드를\n선택하세요")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = -1
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
         keywordLabel.attributedText = attributedString
     }
     func setButtonAttr() {
@@ -90,7 +90,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension CategoryViewController: MessageUsable {
+extension CategoryViewController: AlertUsable, MailUsable {
     @objc func sendMailNewItem() {
         let recipents = "gaksital.official@gmail.com"
         let subjectTitle = "[제보] 일본어 사용 제품 제보합니다!"
@@ -102,9 +102,6 @@ extension CategoryViewController: MessageUsable {
                         <p>각시탈 파이팅 :)</p>
                       """
         self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
-    }
-    private func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-            self.mailComposeController_(controller, didFinishWith: result, error: error)
     }
 }
 

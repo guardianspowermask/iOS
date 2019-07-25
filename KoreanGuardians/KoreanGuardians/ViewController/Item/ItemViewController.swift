@@ -113,7 +113,7 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ItemViewController {
+extension ItemViewController: MailUsable {
     func reportItem(row: Int, itemIdx: Int) {
         let bodyTxt = """
         <p>안녕하세요,</p>
@@ -141,13 +141,6 @@ extension ItemViewController {
             //둘다 없음
             self.simpleAlert(title: "오류", message: "항의 링크를 제공하고 있지 않는 업체입니다.")
         }
-    }
-}
-
-// MARK: 이메일
-extension ItemViewController: MessageUsable {
-    private func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        self.mailComposeController_(controller, didFinishWith: result, error: error)
     }
 }
 

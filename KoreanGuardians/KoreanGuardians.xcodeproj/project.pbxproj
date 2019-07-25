@@ -15,7 +15,6 @@
 		3B373CC822E9353700FFAEB2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CC722E9353700FFAEB2 /* UITableView+Extension.swift */; };
 		3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CC922E9355400FFAEB2 /* UICollectionView+Extension.swift */; };
 		3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CCB22E935B100FFAEB2 /* CategoryCollectionViewCell.swift */; };
-		3B373CD022E98D8500FFAEB2 /* MessageUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CCF22E98D8500FFAEB2 /* MessageUsable.swift */; };
 		3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */; };
 		3B373CD422E9945100FFAEB2 /* UIPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CD322E9945100FFAEB2 /* UIPresentable.swift */; };
 		3B373CD622E99F8E00FFAEB2 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CD522E99F8E00FFAEB2 /* ItemViewController.swift */; };
@@ -23,7 +22,6 @@
 		3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDC22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift */; };
 		3B373CDF22E9B10B00FFAEB2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */; };
 		3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775C7E22E7005A00926A8C /* AppDelegate.swift */; };
-		3B775C8122E7005A00926A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775C8022E7005A00926A8C /* ViewController.swift */; };
 		3B775C8422E7005A00926A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8222E7005A00926A8C /* Main.storyboard */; };
 		3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8522E7005B00926A8C /* Assets.xcassets */; };
 		3B775C8922E7005B00926A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8722E7005B00926A8C /* LaunchScreen.storyboard */; };
@@ -34,7 +32,6 @@
 		3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1A22E7334300926A8C /* NibLoadable.swift */; };
 		3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */; };
 		3B775D2122E74CD400926A8C /* pumped_up.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D2022E74CD300926A8C /* pumped_up.json */; };
-		3B775D2322E74D2D00926A8C /* finger.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D2222E74D2D00926A8C /* finger.json */; };
 		8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */; };
 		B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */; };
 		B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */; };
@@ -43,6 +40,7 @@
 		B8F63A4D22EA49060063B1E0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */; };
 		B8F63A4F22EA49250063B1E0 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */; };
 		B8F63A5122EA499B0063B1E0 /* GuardiansAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */; };
+		B8F63A5622EA615B0063B1E0 /* MailUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A5522EA615B0063B1E0 /* MailUsable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +53,6 @@
 		3B373CC722E9353700FFAEB2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		3B373CC922E9355400FFAEB2 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		3B373CCB22E935B100FFAEB2 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		3B373CCF22E98D8500FFAEB2 /* MessageUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUsable.swift; sourceTree = "<group>"; };
 		3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUsable.swift; sourceTree = "<group>"; };
 		3B373CD322E9945100FFAEB2 /* UIPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPresentable.swift; sourceTree = "<group>"; };
 		3B373CD522E99F8E00FFAEB2 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +61,6 @@
 		3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		3B775C7B22E7005A00926A8C /* KoreanGuardians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoreanGuardians.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B775C7E22E7005A00926A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B775C8022E7005A00926A8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B775C8322E7005A00926A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B775C8522E7005B00926A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B775C8822E7005B00926A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +77,6 @@
 		3B775D1A22E7334300926A8C /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		3B775D2022E74CD300926A8C /* pumped_up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pumped_up.json; sourceTree = "<group>"; };
-		3B775D2222E74D2D00926A8C /* finger.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = finger.json; sourceTree = "<group>"; };
 		516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.debug.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.debug.xcconfig"; sourceTree = "<group>"; };
 		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +87,7 @@
 		B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardiansAPI.swift; sourceTree = "<group>"; };
+		B8F63A5522EA615B0063B1E0 /* MailUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailUsable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +189,7 @@
 				3B775D1A22E7334300926A8C /* NibLoadable.swift */,
 				3B373CD322E9945100FFAEB2 /* UIPresentable.swift */,
 				3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */,
-				3B373CCF22E98D8500FFAEB2 /* MessageUsable.swift */,
+				B8F63A5522EA615B0063B1E0 /* MailUsable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -217,7 +213,6 @@
 				3B373CD922E99F9400FFAEB2 /* LaunchScreen */,
 				3B373CD822E99F9200FFAEB2 /* Category */,
 				3B373CD722E99F9100FFAEB2 /* Item */,
-				3B775C8022E7005A00926A8C /* ViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -227,7 +222,6 @@
 			children = (
 				3B775D2022E74CD300926A8C /* pumped_up.json */,
 				3B775D1422E7317500926A8C /* meow_box_splash_4.json */,
-				3B775D2222E74D2D00926A8C /* finger.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -326,7 +320,6 @@
 				3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */,
 				3B373CB722E92D4F00FFAEB2 /* NotoSansCJKkr-Regular.otf in Resources */,
 				3B775C8422E7005A00926A8C /* Main.storyboard in Resources */,
-				3B775D2322E74D2D00926A8C /* finger.json in Resources */,
 				3B775D2122E74CD400926A8C /* pumped_up.json in Resources */,
 				3B373CB622E92D4D00FFAEB2 /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
@@ -408,7 +401,6 @@
 				3B373CDB22E9AB1B00FFAEB2 /* ItemTableViewCell.swift in Sources */,
 				B8F63A5122EA499B0063B1E0 /* GuardiansAPI.swift in Sources */,
 				3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */,
-				3B775C8122E7005A00926A8C /* ViewController.swift in Sources */,
 				3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */,
 				3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */,
 				3B775CA322E72BD400926A8C /* LaunchScreenViewController.swift in Sources */,
@@ -416,7 +408,7 @@
 				3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */,
 				B8F63A4F22EA49250063B1E0 /* NetworkResult.swift in Sources */,
 				3B373CDF22E9B10B00FFAEB2 /* UIView+Extension.swift in Sources */,
-				3B373CD022E98D8500FFAEB2 /* MessageUsable.swift in Sources */,
+				B8F63A5622EA615B0063B1E0 /* MailUsable.swift in Sources */,
 				3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */,
 				3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */,
 				B8F63A4B22EA48EF0063B1E0 /* Networkable.swift in Sources */,

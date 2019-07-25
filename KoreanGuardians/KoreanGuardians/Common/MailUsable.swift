@@ -1,19 +1,19 @@
 //
-//  MessageUsable.swift
+//  MailUsable.swift
 //  KoreanGuardians
 //
-//  Created by 강수진 on 25/07/2019.
+//  Created by SAY on 26/07/2019.
 //  Copyright © 2019 강수진. All rights reserved.
 //
 
 import Foundation
 import MessageUI
 
-protocol MessageUsable: MFMailComposeViewControllerDelegate, AlertUsable {
+protocol MailUsable: AlertUsable, MFMailComposeViewControllerDelegate {
     func sendMail(recipents: String, subjectTitle: String, bodyTxt: String)
 }
 
-extension MessageUsable {
+extension MailUsable {
     func sendMail(recipents: String, subjectTitle: String, bodyTxt: String) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -28,15 +28,7 @@ extension MessageUsable {
             self.simpleAlert(title: alertTitle, message: alertMsg)
         }
     }
-    func mailComposeController_(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-//        switch result{
-//        case .sent:
-//            self.simpleAlert(title: "성공", message: "메일을 보냈습니다.")
-//        case .failed:
-//            self.simpleAlert(title: "실패", message: "에러가 발생했습니다. 다시 시도해주세요.")
-//        @unknown default:
-//            break
-//        }
-        controller.dismiss(animated: true)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+
     }
 }
