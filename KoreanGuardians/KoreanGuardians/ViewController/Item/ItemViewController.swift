@@ -82,13 +82,6 @@ extension ItemViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension ItemViewController: UICollectionViewDelegateFlowLayout {
-    //cell size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 55, height: 26)
-    }
-}
-
 extension ItemViewController: CategoryLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         widthForCategoryAtIndexPath indexPath: IndexPath) -> CGFloat {
