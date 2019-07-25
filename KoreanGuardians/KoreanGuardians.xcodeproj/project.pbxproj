@@ -15,6 +15,9 @@
 		3B373CC822E9353700FFAEB2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CC722E9353700FFAEB2 /* UITableView+Extension.swift */; };
 		3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CC922E9355400FFAEB2 /* UICollectionView+Extension.swift */; };
 		3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CCB22E935B100FFAEB2 /* CategoryCollectionViewCell.swift */; };
+		3B373CD022E98D8500FFAEB2 /* MessageUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CCF22E98D8500FFAEB2 /* MessageUsable.swift */; };
+		3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */; };
+		3B373CD422E9945100FFAEB2 /* UIPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CD322E9945100FFAEB2 /* UIPresentable.swift */; };
 		3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775C7E22E7005A00926A8C /* AppDelegate.swift */; };
 		3B775C8122E7005A00926A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775C8022E7005A00926A8C /* ViewController.swift */; };
 		3B775C8422E7005A00926A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8222E7005A00926A8C /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 		3B373CC722E9353700FFAEB2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		3B373CC922E9355400FFAEB2 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		3B373CCB22E935B100FFAEB2 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B373CCF22E98D8500FFAEB2 /* MessageUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUsable.swift; sourceTree = "<group>"; };
+		3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUsable.swift; sourceTree = "<group>"; };
+		3B373CD322E9945100FFAEB2 /* UIPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPresentable.swift; sourceTree = "<group>"; };
 		3B775C7B22E7005A00926A8C /* KoreanGuardians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoreanGuardians.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B775C7E22E7005A00926A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B775C8022E7005A00926A8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				3B775D1A22E7334300926A8C /* NibLoadable.swift */,
+				3B373CD322E9945100FFAEB2 /* UIPresentable.swift */,
+				3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */,
+				3B373CCF22E98D8500FFAEB2 /* MessageUsable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -324,6 +333,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */,
+				3B373CD422E9945100FFAEB2 /* UIPresentable.swift in Sources */,
 				3B373CC822E9353700FFAEB2 /* UITableView+Extension.swift in Sources */,
 				3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */,
 				3B775C8122E7005A00926A8C /* ViewController.swift in Sources */,
@@ -331,6 +342,7 @@
 				3B775CA322E72BD400926A8C /* LaunchScreenViewController.swift in Sources */,
 				3B373CC222E9338000FFAEB2 /* ItemVO.swift in Sources */,
 				3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */,
+				3B373CD022E98D8500FFAEB2 /* MessageUsable.swift in Sources */,
 				3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */,
 				3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */,
 				3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */,
