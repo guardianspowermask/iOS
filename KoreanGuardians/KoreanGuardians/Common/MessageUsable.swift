@@ -17,7 +17,7 @@ extension MessageUsable {
     func sendMail(recipents: String, subjectTitle: String, bodyTxt: String) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self.viewController as? MFMailComposeViewControllerDelegate
+            mail.mailComposeDelegate = self
             mail.setToRecipients([recipents])
             mail.setSubject(subjectTitle)
             mail.setMessageBody(bodyTxt, isHTML: true)
@@ -28,15 +28,15 @@ extension MessageUsable {
             self.simpleAlert(title: alertTitle, message: alertMsg)
         }
     }
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        switch result{
-        case .sent:
-            self.simpleAlert(title: "성공", message: "메일을 보냈습니다.")
-        case .failed:
-            self.simpleAlert(title: "실패", message: "에러가 발생했습니다. 다시 시도해주세요.")
-        @unknown default:
-            break
-        }
+    func mailComposeController_(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        switch result{
+//        case .sent:
+//            self.simpleAlert(title: "성공", message: "메일을 보냈습니다.")
+//        case .failed:
+//            self.simpleAlert(title: "실패", message: "에러가 발생했습니다. 다시 시도해주세요.")
+//        @unknown default:
+//            break
+//        }
         controller.dismiss(animated: true)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class CategoryViewController: UIViewController {
 
@@ -89,5 +90,8 @@ extension CategoryViewController: MessageUsable {
                         <p>위 제품을 제보합니다. 각시탈 파이팅 :)</p>
                       """
         self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            self.mailComposeController_(controller, didFinishWith: result, error: error)
     }
 }
