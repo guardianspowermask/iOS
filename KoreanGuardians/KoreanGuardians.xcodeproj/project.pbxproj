@@ -39,6 +39,10 @@
 		B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */; };
 		B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */; };
 		B8F63A4922EA3C2E0063B1E0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4822EA3C2E0063B1E0 /* String+Extension.swift */; };
+		B8F63A4B22EA48EF0063B1E0 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4A22EA48EF0063B1E0 /* Networkable.swift */; };
+		B8F63A4D22EA49060063B1E0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */; };
+		B8F63A4F22EA49250063B1E0 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */; };
+		B8F63A5122EA499B0063B1E0 /* GuardiansAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +88,10 @@
 		B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLayout.swift; sourceTree = "<group>"; };
 		B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		B8F63A4822EA3C2E0063B1E0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B8F63A4A22EA48EF0063B1E0 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardiansAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,10 @@
 				3B775C8722E7005B00926A8C /* LaunchScreen.storyboard */,
 				3B775C8A22E7005B00926A8C /* Info.plist */,
 				3B775C9822E71CD700926A8C /* InfoPlist.strings */,
+				B8F63A4A22EA48EF0063B1E0 /* Networkable.swift */,
+				B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */,
+				B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */,
+				B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */,
 			);
 			path = KoreanGuardians;
 			sourceTree = "<group>";
@@ -386,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F63A4D22EA49060063B1E0 /* NetworkManager.swift in Sources */,
 				B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */,
 				B8F63A4922EA3C2E0063B1E0 /* String+Extension.swift in Sources */,
 				3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */,
@@ -393,6 +406,7 @@
 				3B373CD622E99F8E00FFAEB2 /* ItemViewController.swift in Sources */,
 				3B373CC822E9353700FFAEB2 /* UITableView+Extension.swift in Sources */,
 				3B373CDB22E9AB1B00FFAEB2 /* ItemTableViewCell.swift in Sources */,
+				B8F63A5122EA499B0063B1E0 /* GuardiansAPI.swift in Sources */,
 				3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */,
 				3B775C8122E7005A00926A8C /* ViewController.swift in Sources */,
 				3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */,
@@ -400,10 +414,12 @@
 				3B775CA322E72BD400926A8C /* LaunchScreenViewController.swift in Sources */,
 				3B373CC222E9338000FFAEB2 /* ItemVO.swift in Sources */,
 				3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */,
+				B8F63A4F22EA49250063B1E0 /* NetworkResult.swift in Sources */,
 				3B373CDF22E9B10B00FFAEB2 /* UIView+Extension.swift in Sources */,
 				3B373CD022E98D8500FFAEB2 /* MessageUsable.swift in Sources */,
 				3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */,
 				3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */,
+				B8F63A4B22EA48EF0063B1E0 /* Networkable.swift in Sources */,
 				B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */,
 				3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */,
 				3B373CC022E9332800FFAEB2 /* CategoryVO.swift in Sources */,
