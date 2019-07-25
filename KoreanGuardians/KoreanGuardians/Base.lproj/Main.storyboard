@@ -115,9 +115,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISK-aF-EN1">
                                 <rect key="frame" x="142" y="746" width="130" height="97"/>
                                 <state key="normal" image="cat"/>
-                                <connections>
-                                    <action selector="emailNewItem:" destination="hRq-tl-anE" eventType="touchUpInside" id="Fbh-i6-Ra6"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYl-wN-ACA">
                                 <rect key="frame" x="0.0" y="143" width="414" height="9"/>
@@ -146,6 +143,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="u1h-Ie-xqD" id="0pq-3V-68a"/>
+                        <outlet property="emailNewItemButton" destination="ISK-aF-EN1" id="d5v-Yp-WKX"/>
                         <outlet property="keywordLabel" destination="Dme-1v-QrZ" id="iKY-eA-ymm"/>
                     </connections>
                 </viewController>

@@ -12,10 +12,12 @@ class CategoryViewController: UIViewController {
 
     @IBOutlet private weak var keywordLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var emailNewItemButton: UIButton!
     var categories: [Category] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabelAttr(label: keywordLabel)
+        setLabelAttr()
+        setButtonAttr()
         setCollectionView()
         addSampleData()
     }
@@ -25,15 +27,15 @@ class CategoryViewController: UIViewController {
         let whole = Category(categoryIdx: 2, name: "전체", itemCnt: 2, img: "goods/2019/07/25/%E1%84%82%E1%85%A3%E1%84%8B%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%B5%20%E1%84%82%E1%85%A1%E1%84%8B%E1%85%B5.jpg", replaceWords: ["라면", "일본 라면"])
         categories.append(contentsOf: [mocci, ramen, whole, mocci, ramen, whole, mocci, ramen, whole])
     }
-    @IBAction func emailNewItem(_ sender: Any) {
-        print("email")
-    }
-    func setLabelAttr(label: UILabel) {
+    func setLabelAttr() {
         let attributedString = NSMutableAttributedString(string: "키워드를\n선택하세요")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = -1
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
-        label.attributedText = attributedString
+        keywordLabel.attributedText = attributedString
+    }
+    func setButtonAttr(){
+        emailNewItemButton.addTarget(self, action: #selector(sendMailNewItem), for: .touchUpInside)
     }
     func setCollectionView() {
         collectionView.delegate = self
@@ -51,7 +53,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("aa")
+        print("select")
     }
 }
 
@@ -73,5 +75,19 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     //collectionView inset
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+}
+
+extension CategoryViewController: MessageUsable {
+    @objc func sendMailNewItem() {
+        let recipents = "gaksital.official@gmail.com"
+        let subjectTitle = "[제보] 일본어 사용 제품 제보합니다!"
+        let bodyTxt = """
+                        <p>이름: 제품명 ex) CU 리얼초코모찌롤</p>
+                        <p>제조사: ex) CJ 푸드빌</p>
+                        <p>한 마디:                 </p>
+                        <p>위 제품을 제보합니다. 각시탈 파이팅 :)</p>
+                      """
+        self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
     }
 }
