@@ -36,6 +36,7 @@
 		3B775D2122E74CD400926A8C /* pumped_up.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D2022E74CD300926A8C /* pumped_up.json */; };
 		3B775D2322E74D2D00926A8C /* finger.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D2222E74D2D00926A8C /* finger.json */; };
 		8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */; };
+		B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.debug.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.debug.xcconfig"; sourceTree = "<group>"; };
 		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
+		B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				3B775D1922E7333400926A8C /* Common */,
 				3B775D1E22E7342300926A8C /* Extensions */,
 				3B373CBE22E9330F00FFAEB2 /* Model */,
+				B8F63A4122EA229A0063B1E0 /* Layout */,
 				3B775D1F22E7351300926A8C /* ViewController */,
 				3B775C7E22E7005A00926A8C /* AppDelegate.swift */,
 				3B775C8222E7005A00926A8C /* Main.storyboard */,
@@ -217,6 +220,14 @@
 				61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8F63A4122EA229A0063B1E0 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		BC2578FD2E596D5203C462E9 /* Pods */ = {
@@ -369,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */,
 				3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */,
 				3B373CD422E9945100FFAEB2 /* UIPresentable.swift in Sources */,
 				3B373CD622E99F8E00FFAEB2 /* ItemViewController.swift in Sources */,
