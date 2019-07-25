@@ -82,13 +82,6 @@ extension ItemViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension ItemViewController: UICollectionViewDelegateFlowLayout {
-    //cell size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 55, height: 26)
-    }
-}
-
 extension ItemViewController: CategoryLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         widthForCategoryAtIndexPath indexPath: IndexPath) -> CGFloat {
@@ -115,15 +108,25 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ItemViewController {
     func reportItem(row: Int, itemIdx: Int) {
+        let bodyTxt = """
+        <p>안녕하세요,</p>
+        <p>귀사의 (\(items[row].name)) 제품명에 대해 건의할 사항이 있습니다.</p>
+        <p>충분히 우리말로 만들 수 있는 제품명에 굳이 일본어를 사용할 필요가 없다고 생각합니다.</p>
+        <p>고작 하나의 제품 이름일 뿐이라고 생각하지 말고 언어 사용의 중요성에 대해 인지하시길 바랍니다.</p>
+        <p>감사합니다 :)</p>
+        """
         if !items[row].email.isEmpty {
             //email
+            let itemName = items[row].name
             let recipents = items[row].email
-            let subjectTitle = "항의합니다!"
-            let bodyTxt = "바꿔주세요!!"
+            let subjectTitle = "[\(itemName)] 제품명에 대해서 건의합니다."
             self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
         } else if !items[row].facebook.isEmpty {
             //facebook
-            self.sendFM(fbId: items[row].facebook)
+            UIPasteboard.general.string = bodyTxt.html2String
+            self.simpleAlert(title: "샘플 메시지가 복사되었습니다.\n붙여넣기를 해보세요. :)", message: "") { (_) in
+                self.sendFM(fbId: self.items[row].facebook)
+            }
         } else {
             //둘다 없음
             self.simpleAlert(title: "오류", message: "항의 링크를 제공하고 있지 않는 업체입니다.")
@@ -141,7 +144,7 @@ extension ItemViewController: MessageUsable {
 // MARK: 페이스북 메시지
 extension ItemViewController {
     func sendFM(fbId: String) {
-        guard let msgUrl = URL(string: "fb-messenger://user-thread/\(fbId)") else {
+        guard let msgUrl = URL(string: "https://m.me/\(fbId)") else {
             self.simpleAlert(title: "실패", message: "유효하지 않은 url 입니다")
             return
         }
