@@ -46,10 +46,10 @@ class ItemViewController: UIViewController, NibLoadable {
         present(alert, animated: true)
     }
     func addItemSampleData() {
-        let mocci1 = Item(itemIdx: 0, name: "모찌1", img: "img", reportCnt: 0, store: "씨유", email: "rkdthd1234@naver.com", facebook: "")
-        let mocci2 = Item(itemIdx: 1, name: "모찌2", img: "img", reportCnt: 0, store: "gs", email: "rkdthd1234@naver.com", facebook: "")
+        let mocci1 = Item(itemIdx: 0, name: "모찌1", img: "img", reportCnt: 0, store: "씨유", email: "", facebook: "100010023481570")
+        let mocci2 = Item(itemIdx: 1, name: "모찌2", img: "img", reportCnt: 0, store: "gs", email: "rkdthd1234@naver.com", facebook: "100010023481570")
         let mocci3 = Item(itemIdx: 2, name: "모찌3", img: "img", reportCnt: 0, store: "711", email: "rkdthd1234@naver.com", facebook: "")
-        items.append(contentsOf: [mocci1, mocci2, mocci3, mocci1, mocci2, mocci3, mocci1, mocci2, mocci3])
+        items.append(contentsOf: [mocci1, mocci2, mocci3])
     }
     func selectInitialCategory() {
         self.collectionView.selectItem(at: IndexPath(item: selectedCategoryIdx, section: 0), animated: true, scrollPosition: .centeredHorizontally)
@@ -97,26 +97,60 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
             guard let `self` = self else {
                 return
             }
-            print("\(self.items[row].itemIdx)에 메일을 보냄")
+            self.reportItem(row: row, itemIdx: self.items[row].itemIdx)
         }
         return cell
     }
 }
 
-//extension ItemViewController: MessageUsable {
-//    @objc func sendReport() {
-//        //if mail, fb으로 분기
-//        let recipents = "gaksital.official@gmail.com"
-//        let subjectTitle = "[제보] 일본어 사용 제품 제보합니다!"
-//        let bodyTxt = """
-//                        <p>이름: 제품명 ex) CU 리얼초코모찌롤</p>
-//                        <p>제조사: ex) CJ 푸드빌</p>
-//                        <p>한 마디:                 </p>
-//                        <p>위 제품을 제보합니다. 각시탈 파이팅 :)</p>
-//                      """
-//        self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
-//    }
-//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-//        self.mailComposeController_(controller, didFinishWith: result, error: error)
-//    }
-//}
+extension ItemViewController {
+    func reportItem(row: Int, itemIdx: Int) {
+        if !items[row].email.isEmpty {
+            //email
+            let recipents = items[row].email
+            let subjectTitle = "항의합니다!"
+            let bodyTxt = "바꿔주세요!!"
+            self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
+        } else if !items[row].facebook.isEmpty {
+            //facebook
+            self.sendFM(fbId: items[row].facebook)
+        } else {
+            //둘다 없음
+            self.simpleAlert(title: "오류", message: "항의 링크를 제공하고 있지 않는 업체입니다.")
+        }
+    }
+}
+
+// MARK: 이메일
+extension ItemViewController: MessageUsable {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.mailComposeController_(controller, didFinishWith: result, error: error)
+    }
+}
+
+// MARK: 페이스북 메시지
+extension ItemViewController {
+    func sendFM(fbId: String) {
+        guard let msgUrl = URL(string: "fb-messenger://user-thread/\(fbId)") else {
+            self.simpleAlert(title: "실패", message: "유효하지 않은 url 입니다")
+            return
+        }
+        UIApplication.shared.open(msgUrl, options: [:], completionHandler: {[weak self] (success) in
+            guard let `self` = self else {
+                return
+            }
+            if !success {
+                // Messenger is not installed. Open in browser instead.
+                guard let url = URL(string: "https://www.facebook.com/\(fbId)") else {
+                    self.simpleAlert(title: "실패", message: "유효하지 않은 url 입니다")
+                    return
+                }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                } else {
+                    self.simpleAlert(title: "실패", message: "해당 페이지를 열수 없습니다")
+                }
+            }
+        })
+    }
+}

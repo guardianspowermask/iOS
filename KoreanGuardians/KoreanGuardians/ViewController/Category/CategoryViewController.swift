@@ -15,12 +15,20 @@ class CategoryViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var emailNewItemButton: UIButton!
     var categories: [Category] = []
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelAttr()
         setButtonAttr()
         setCollectionView()
         addSampleData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
     }
     func addSampleData() {
         let mocci = Category(categoryIdx: 0, name: "모찌", itemCnt: 1, img: "https://4guardians.s3.ap-northeast-2.amazonaws.com/guardians/2019/07/25/cat.jpeg", replaceWords: ["찹쌀", "찰떡"])
