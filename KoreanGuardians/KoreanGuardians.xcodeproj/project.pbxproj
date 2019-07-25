@@ -37,6 +37,8 @@
 		3B775D2322E74D2D00926A8C /* finger.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D2222E74D2D00926A8C /* finger.json */; };
 		8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */; };
 		B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */; };
+		B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */; };
+		B8F63A4922EA3C2E0063B1E0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4822EA3C2E0063B1E0 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
 		B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLayout.swift; sourceTree = "<group>"; };
+		B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		B8F63A4822EA3C2E0063B1E0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,8 @@
 				3B373CC722E9353700FFAEB2 /* UITableView+Extension.swift */,
 				3B373CC922E9355400FFAEB2 /* UICollectionView+Extension.swift */,
 				3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */,
+				B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */,
+				B8F63A4822EA3C2E0063B1E0 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */,
+				B8F63A4922EA3C2E0063B1E0 /* String+Extension.swift in Sources */,
 				3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */,
 				3B373CD422E9945100FFAEB2 /* UIPresentable.swift in Sources */,
 				3B373CD622E99F8E00FFAEB2 /* ItemViewController.swift in Sources */,
@@ -397,6 +404,7 @@
 				3B373CD022E98D8500FFAEB2 /* MessageUsable.swift in Sources */,
 				3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */,
 				3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */,
+				B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */,
 				3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */,
 				3B373CC022E9332800FFAEB2 /* CategoryVO.swift in Sources */,
 			);
