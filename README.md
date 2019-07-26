@@ -1,9 +1,7 @@
 # 각시탈 프로젝트
-
-## [ About ]
 <img src="https://github.com/guardianspowermask/iOS/blob/master/images/ios_appicon.png" width="200" height = "200">
 
-
+## [ About ]
 **일본어를 남용**하는 **제품에 대한 정보를 제공**하는 **각시탈 프로젝트**입니다.
 일본어 오남용 제품을 알아보고 고객 센터에 제품명 변경에 대해 건의할 수 있습니다.
 
