@@ -294,7 +294,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이니스프리입니다입니다요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIY-fF-fKr">
-                                                    <rect key="frame" x="35" y="59" width="265" height="36"/>
+                                                    <rect key="frame" x="35" y="66" width="265" height="36"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="24"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -326,7 +326,7 @@
                                                 <constraint firstItem="U4c-SJ-jgV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PIY-fF-fKr" secondAttribute="trailing" constant="8" id="A9p-md-ADP"/>
                                                 <constraint firstItem="U4c-SJ-jgV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hgX-Of-1Lf" secondAttribute="trailing" constant="8" id="Cbb-2k-Pno"/>
                                                 <constraint firstItem="T79-8t-p5T" firstAttribute="trailing" secondItem="WrT-RP-Jum" secondAttribute="trailing" id="CqT-Pq-P5z"/>
-                                                <constraint firstItem="PIY-fF-fKr" firstAttribute="top" secondItem="hgX-Of-1Lf" secondAttribute="bottom" constant="-7" id="DYK-VS-vob"/>
+                                                <constraint firstItem="PIY-fF-fKr" firstAttribute="top" secondItem="hgX-Of-1Lf" secondAttribute="bottom" id="DYK-VS-vob"/>
                                                 <constraint firstItem="WrT-RP-Jum" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hgX-Of-1Lf" secondAttribute="trailing" constant="8" id="JG0-gW-4fn"/>
                                                 <constraint firstAttribute="bottom" secondItem="oj7-Lo-ofz" secondAttribute="bottom" constant="7.5" id="Jp4-kd-GsV"/>
                                                 <constraint firstAttribute="trailing" secondItem="oj7-Lo-ofz" secondAttribute="trailing" constant="16" id="OvX-tE-D7V"/>
