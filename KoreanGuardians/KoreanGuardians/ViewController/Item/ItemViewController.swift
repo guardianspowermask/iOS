@@ -152,11 +152,11 @@ extension ItemViewController: MFMailComposeViewControllerDelegate {
         switch result {
         case .sent:
             guard let selectedItemIdxToReport = selectedItemIdxToReport else {
-                return
+                break
             }
             putReport(itemIdx: selectedItemIdxToReport)
         default:
-            return
+            break
         }
     }
 }
