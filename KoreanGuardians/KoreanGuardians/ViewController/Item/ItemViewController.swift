@@ -144,6 +144,12 @@ extension ItemViewController: MailUsable {
     }
 }
 
+extension ItemViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+
 // MARK: 페이스북 메시지
 extension ItemViewController {
     func sendFM(fbId: String) {

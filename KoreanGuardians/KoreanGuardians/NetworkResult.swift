@@ -10,10 +10,10 @@ import Foundation
 
 enum NetworkResult<T> {
     case success(T)
-    case failure(Error)
+    case failure(NetworkError)
 }
 
-enum Error {
+enum NetworkError {
     case networkConnectFail
     case networkError(msg : String)
 }

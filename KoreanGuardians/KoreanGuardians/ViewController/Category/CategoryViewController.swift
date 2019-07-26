@@ -90,7 +90,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension CategoryViewController: AlertUsable, MailUsable {
+extension CategoryViewController: MailUsable {
     @objc func sendMailNewItem() {
         let recipents = "gaksital.official@gmail.com"
         let subjectTitle = "[제보] 일본어 사용 제품 제보합니다!"
@@ -102,6 +102,12 @@ extension CategoryViewController: AlertUsable, MailUsable {
                         <p>각시탈 파이팅 :)</p>
                       """
         self.sendMail(recipents: recipents, subjectTitle: subjectTitle, bodyTxt: bodyTxt)
+    }
+}
+
+extension CategoryViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
 
