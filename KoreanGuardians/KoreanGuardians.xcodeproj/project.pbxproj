@@ -32,6 +32,7 @@
 		3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1A22E7334300926A8C /* NibLoadable.swift */; };
 		3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */; };
 		3B775D2122E74CD400926A8C /* pumped_up.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B775D2022E74CD300926A8C /* pumped_up.json */; };
+		3BA6817222EB5D88000166F0 /* DefaultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA6817122EB5D88000166F0 /* DefaultVO.swift */; };
 		8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */; };
 		B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */; };
 		B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */; };
@@ -77,6 +78,7 @@
 		3B775D1A22E7334300926A8C /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		3B775D2022E74CD300926A8C /* pumped_up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pumped_up.json; sourceTree = "<group>"; };
+		3BA6817122EB5D88000166F0 /* DefaultVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVO.swift; sourceTree = "<group>"; };
 		516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.debug.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.debug.xcconfig"; sourceTree = "<group>"; };
 		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				3B373CBF22E9332800FFAEB2 /* CategoryVO.swift */,
 				3B373CC122E9338000FFAEB2 /* ItemVO.swift */,
+				3BA6817122EB5D88000166F0 /* DefaultVO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */,
 				3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */,
 				3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */,
+				3BA6817222EB5D88000166F0 /* DefaultVO.swift in Sources */,
 				3B775CA322E72BD400926A8C /* LaunchScreenViewController.swift in Sources */,
 				3B373CC222E9338000FFAEB2 /* ItemVO.swift in Sources */,
 				3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */,

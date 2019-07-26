@@ -12,6 +12,7 @@ import Moya
 enum GuardiansAPI {
     case getCategory
     case getItem(categoryIdx: Int, order: Int)
+    case putReport(itemIdx: Int)
 }
 
 extension GuardiansAPI: TargetType {
@@ -27,12 +28,16 @@ extension GuardiansAPI: TargetType {
             return "/category"
         case .getItem(let categoryIdx, let order):
             return "/item/\(categoryIdx)/\(order)"
+        case .putReport(let itemIdx):
+            return "/item/\(itemIdx)/report"
         }
     }
     var method: Moya.Method {
         switch self {
         case .getCategory, .getItem:
             return .get
+        case .putReport:
+            return .put
         }
     }
     var parameterEncoding: ParameterEncoding {
@@ -43,7 +48,7 @@ extension GuardiansAPI: TargetType {
     }
     var task: Task {
         switch self {
-        case .getCategory, .getItem:
+        case .getCategory, .getItem, .putReport:
             return .requestPlain
         }
     }
