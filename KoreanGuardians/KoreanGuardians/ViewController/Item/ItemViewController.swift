@@ -172,7 +172,12 @@ extension ItemViewController {
             guard let `self` = self else {
                 return
             }
-            if !success {
+            if success {
+                guard let selectedItemIdxToReport = self.selectedItemIdxToReport else {
+                    return
+                }
+                self.putReport(itemIdx: selectedItemIdxToReport)
+            } else {
                 // Messenger is not installed. Open in browser instead.
                 guard let url = URL(string: "https://www.facebook.com/\(fbId)") else {
                     self.simpleAlert(title: "실패", message: "유효하지 않은 url 입니다")
