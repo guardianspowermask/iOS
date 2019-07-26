@@ -9,7 +9,7 @@
 import Foundation
 import MessageUI
 
-protocol MailUsable: AlertUsable, MFMailComposeViewControllerDelegate {
+protocol MailUsable: AlertUsable {
     func sendMail(recipents: String, subjectTitle: String, bodyTxt: String)
 }
 
@@ -17,7 +17,7 @@ extension MailUsable {
     func sendMail(recipents: String, subjectTitle: String, bodyTxt: String) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
+            mail.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
             mail.setToRecipients([recipents])
             mail.setSubject(subjectTitle)
             mail.setMessageBody(bodyTxt, isHTML: true)
@@ -27,8 +27,5 @@ extension MailUsable {
             let alertMsg = "메일을 보낼 수 없습니다. 기본 메일 계정 설정이 되어있는지 확인해주세요."
             self.simpleAlert(title: alertTitle, message: alertMsg)
         }
-    }
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-            controller.dismiss(animated: true, completion: nil)
     }
 }
