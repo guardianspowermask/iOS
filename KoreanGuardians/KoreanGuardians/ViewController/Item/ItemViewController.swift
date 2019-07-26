@@ -148,6 +148,7 @@ extension ItemViewController: MailUsable {
 
 extension ItemViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
         switch result {
         case .sent:
             guard let selectedItemIdxToReport = selectedItemIdxToReport else {
@@ -157,7 +158,6 @@ extension ItemViewController: MFMailComposeViewControllerDelegate {
         default:
             return
         }
-        controller.dismiss(animated: true, completion: nil)
     }
 }
 
