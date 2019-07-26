@@ -181,7 +181,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="26"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qV9-FG-gFX">
-                                                            <rect key="frame" x="12.5" y="3.5" width="28" height="19"/>
+                                                            <rect key="frame" x="12" y="1" width="29.5" height="24"/>
                                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                                             <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -397,9 +397,25 @@
                     <view key="view" contentMode="scaleToFill" id="7Gr-FX-oDC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="etN-Xq-vCN">
+                                <rect key="frame" x="70" y="182.5" width="274" height="541"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="etN-Xq-vCN" secondAttribute="height" multiplier="207:409" id="0Kc-0z-1bv"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="etN-Xq-vCN" firstAttribute="leading" secondItem="RfU-bE-Ufk" secondAttribute="leading" constant="70" id="1VO-MT-Ddf"/>
+                            <constraint firstItem="RfU-bE-Ufk" firstAttribute="trailing" secondItem="etN-Xq-vCN" secondAttribute="trailing" constant="70" id="Pwo-oz-TV4"/>
+                            <constraint firstItem="etN-Xq-vCN" firstAttribute="centerY" secondItem="RfU-bE-Ufk" secondAttribute="centerY" id="uEF-1Q-nmh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RfU-bE-Ufk"/>
                     </view>
+                    <connections>
+                        <outlet property="splashGifImg" destination="etN-Xq-vCN" id="k2m-rZ-HyU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syR-FH-vMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
