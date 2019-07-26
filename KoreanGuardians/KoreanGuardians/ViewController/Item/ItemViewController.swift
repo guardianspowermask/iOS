@@ -15,6 +15,7 @@ class ItemViewController: UIViewController, NibLoadable {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var itemCountLabel: UILabel!
     @IBOutlet private weak var orderLabel: UILabel!
+    var selectedItemIdxToReport: Int?
     var categories: [Category] = []
     var items: [Item] = [] {
         didSet {
@@ -115,6 +116,7 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ItemViewController: MailUsable {
     func reportItem(row: Int, itemIdx: Int) {
+        selectedItemIdxToReport = itemIdx
         let bodyTxt = """
         <p>안녕하세요,</p>
         <p>귀사의 (\(items[row].name)) 제품명에 대해 건의할 사항이 있습니다.</p>
@@ -146,6 +148,15 @@ extension ItemViewController: MailUsable {
 
 extension ItemViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .sent:
+            guard let selectedItemIdxToReport = selectedItemIdxToReport else {
+                return
+            }
+            putReport(itemIdx: selectedItemIdxToReport)
+        default:
+            return
+        }
         controller.dismiss(animated: true, completion: nil)
     }
 }
@@ -200,6 +211,25 @@ extension ItemViewController {
                     break
                 }
                 self.orderLabel.text = orderTxt
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail:
+                    self.simpleAlert(title: "오류", message: "네트워크 연결상태를 확인해주세요")
+                case .networkError(let msg):
+                    self.simpleAlert(title: "오류", message: "잠시후 다시 시도해주세요")
+                    print("error log is "+msg)
+                }
+            }
+        }
+    }
+    func putReport(itemIdx: Int) {
+        NetworkManager.sharedInstance.putReport(itemIdx: itemIdx) { [weak self] (res) in
+            guard let `self` = self else {
+                return
+            }
+            switch res {
+            case .success(_):
+                self.getItems()
             case .failure(let type):
                 switch type {
                 case .networkConnectFail:

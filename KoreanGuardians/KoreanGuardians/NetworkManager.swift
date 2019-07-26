@@ -14,7 +14,6 @@ struct NetworkManager: Networkable {
     let provider = MoyaProvider<GuardiansAPI>()
 }
 
-//pms
 extension NetworkManager {
    func getCategory(completion: @escaping (NetworkResult<[Category]>) -> Void) {
         fetchData(api: .getCategory, networkData: CategoryVO.self) { (result) in
@@ -36,6 +35,21 @@ extension NetworkManager {
             switch result {
             case .success(let successResult):
                 completion(.success(successResult.resResult.data))
+            case .failure(let errorType):
+                switch errorType {
+                case .networkConnectFail:
+                    completion(.failure(.networkConnectFail))
+                case .networkError(let msg):
+                    completion(.failure(.networkError(msg: msg)))
+                }
+            }
+        }
+    }
+    func putReport(itemIdx: Int, completion: @escaping (NetworkResult<DefaultVO>) -> Void) {
+        fetchData(api: .putReport(itemIdx: itemIdx), networkData: DefaultVO.self) { (result) in
+            switch result {
+            case .success(let successResult):
+                completion(.success(successResult.resResult))
             case .failure(let errorType):
                 switch errorType {
                 case .networkConnectFail:
