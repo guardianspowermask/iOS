@@ -77,9 +77,8 @@
 		3B775D1A22E7334300926A8C /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		3BA6817122EB5D88000166F0 /* DefaultVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVO.swift; sourceTree = "<group>"; };
-		516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.debug.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.debug.xcconfig"; sourceTree = "<group>"; };
 		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
+		ACF5BDAFFB64351D4DB9FE87 /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
 		B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLayout.swift; sourceTree = "<group>"; };
 		B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		B8F63A4822EA3C2E0063B1E0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardiansAPI.swift; sourceTree = "<group>"; };
 		B8F63A5522EA615B0063B1E0 /* MailUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailUsable.swift; sourceTree = "<group>"; };
+		D743E7E04FF043F86DF98F51 /* Pods-KoreanGuardians.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.debug.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +149,8 @@
 				3B373CB322E92D4200FFAEB2 /* NotoSansCJKkr-Regular.otf */,
 				3B775C7D22E7005A00926A8C /* KoreanGuardians */,
 				3B775C7C22E7005A00926A8C /* Products */,
-				BC2578FD2E596D5203C462E9 /* Pods */,
 				7DF62C6EE5E77B61A082ACED /* Frameworks */,
+				E8BF6D8E191567E5DEC0E7FA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,12 +234,13 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
-		BC2578FD2E596D5203C462E9 /* Pods */ = {
+		E8BF6D8E191567E5DEC0E7FA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */,
-				ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */,
+				D743E7E04FF043F86DF98F51 /* Pods-KoreanGuardians.debug.xcconfig */,
+				ACF5BDAFFB64351D4DB9FE87 /* Pods-KoreanGuardians.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -254,8 +255,8 @@
 				3B775C7722E7005A00926A8C /* Sources */,
 				3B775C7822E7005A00926A8C /* Frameworks */,
 				3B775C7922E7005A00926A8C /* Resources */,
-				9D9C8AE69095D996926480B1 /* [CP] Embed Pods Frameworks */,
 				3B775C9E22E7284700926A8C /* ShellScript */,
+				9BB3B2690D566261E7A46BC9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -358,7 +359,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9D9C8AE69095D996926480B1 /* [CP] Embed Pods Frameworks */ = {
+		9BB3B2690D566261E7A46BC9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -565,12 +566,13 @@
 		};
 		3B775C8E22E7005B00926A8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 516998FE6C7AFF5647139456 /* Pods-KoreanGuardians.debug.xcconfig */;
+			baseConfigurationReference = D743E7E04FF043F86DF98F51 /* Pods-KoreanGuardians.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4XABUQ539;
 				INFOPLIST_FILE = KoreanGuardians/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -584,12 +586,13 @@
 		};
 		3B775C8F22E7005B00926A8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACAD95F1770CF750DE49012B /* Pods-KoreanGuardians.release.xcconfig */;
+			baseConfigurationReference = ACF5BDAFFB64351D4DB9FE87 /* Pods-KoreanGuardians.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4XABUQ539;
 				INFOPLIST_FILE = KoreanGuardians/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
