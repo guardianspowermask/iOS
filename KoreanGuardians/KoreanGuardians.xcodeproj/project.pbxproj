@@ -33,6 +33,9 @@
 		3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1A22E7334300926A8C /* NibLoadable.swift */; };
 		3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */; };
 		3BA6817222EB5D88000166F0 /* DefaultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA6817122EB5D88000166F0 /* DefaultVO.swift */; };
+		3BE6EFBC22FCEE9F007C46BF /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EFBB22FCEE9F007C46BF /* ItemDetailViewController.swift */; };
+		3BE6EFBE22FCF1E2007C46BF /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3BE6EFBD22FCF1E1007C46BF /* NotoSansKR-Bold.otf */; };
+		3BE6EFC222FCF454007C46BF /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EFC122FCF454007C46BF /* ItemDetailTableViewCell.swift */; };
 		8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */; };
 		B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */; };
 		B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */; };
@@ -78,6 +81,9 @@
 		3B775D1A22E7334300926A8C /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		3BA6817122EB5D88000166F0 /* DefaultVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVO.swift; sourceTree = "<group>"; };
+		3BE6EFBB22FCEE9F007C46BF /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		3BE6EFBD22FCF1E1007C46BF /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		3BE6EFC122FCF454007C46BF /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
 		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF5BDAFFB64351D4DB9FE87 /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
 		B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLayout.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 				3B775C9F22E728AD00926A8C /* .swiftlint.yml */,
 				3B0ED39F22EB683E00F9D1F6 /* pealluck.gif */,
 				3B0ED3A122F0D6B600F9D1F6 /* NotoSansKR-Light.otf */,
+				3BE6EFBD22FCF1E1007C46BF /* NotoSansKR-Bold.otf */,
 				3B0ED3A222F0D6B600F9D1F6 /* NotoSansKR-Medium.otf */,
 				3B0ED3A322F0D6B600F9D1F6 /* NotoSansKR-Regular.otf */,
 				3B775C7D22E7005A00926A8C /* KoreanGuardians */,
@@ -215,8 +222,18 @@
 				3B373CD922E99F9400FFAEB2 /* LaunchScreen */,
 				3B373CD822E99F9200FFAEB2 /* Category */,
 				3B373CD722E99F9100FFAEB2 /* Item */,
+				3BE6EFBA22FCEE8A007C46BF /* ItemDetail */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3BE6EFBA22FCEE8A007C46BF /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3BE6EFBB22FCEE9F007C46BF /* ItemDetailViewController.swift */,
+				3BE6EFC122FCF454007C46BF /* ItemDetailTableViewCell.swift */,
+			);
+			path = ItemDetail;
 			sourceTree = "<group>";
 		};
 		7DF62C6EE5E77B61A082ACED /* Frameworks */ = {
@@ -310,6 +327,7 @@
 				3B775CA022E728AD00926A8C /* .swiftlint.yml in Resources */,
 				3B775C8922E7005B00926A8C /* LaunchScreen.storyboard in Resources */,
 				3B0ED3A522F0D6B700F9D1F6 /* NotoSansKR-Medium.otf in Resources */,
+				3BE6EFBE22FCF1E2007C46BF /* NotoSansKR-Bold.otf in Resources */,
 				3B775C9622E71CD700926A8C /* InfoPlist.strings in Resources */,
 				3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */,
 				3B0ED3A022EB683E00F9D1F6 /* pealluck.gif in Resources */,
@@ -394,6 +412,7 @@
 				3B373CDB22E9AB1B00FFAEB2 /* ItemTableViewCell.swift in Sources */,
 				B8F63A5122EA499B0063B1E0 /* GuardiansAPI.swift in Sources */,
 				3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */,
+				3BE6EFBC22FCEE9F007C46BF /* ItemDetailViewController.swift in Sources */,
 				3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */,
 				3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */,
 				3BA6817222EB5D88000166F0 /* DefaultVO.swift in Sources */,
@@ -402,6 +421,7 @@
 				3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */,
 				B8F63A4F22EA49250063B1E0 /* NetworkResult.swift in Sources */,
 				3B373CDF22E9B10B00FFAEB2 /* UIView+Extension.swift in Sources */,
+				3BE6EFC222FCF454007C46BF /* ItemDetailTableViewCell.swift in Sources */,
 				B8F63A5622EA615B0063B1E0 /* MailUsable.swift in Sources */,
 				3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */,
 				3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */,

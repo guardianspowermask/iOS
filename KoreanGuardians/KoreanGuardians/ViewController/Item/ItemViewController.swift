@@ -15,7 +15,7 @@ class ItemViewController: UIViewController, NibLoadable {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var itemCountLabel: UILabel!
     @IBOutlet private weak var orderLabel: UILabel!
-    var selectedItemIdxToReport: Int?
+    //var selectedItemIdxToReport: Int?
     var categories: [Category] = []
     var items: [Item] = [] {
         didSet {
@@ -108,13 +108,18 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
             guard let `self` = self else {
                 return
             }
-            self.reportItem(row: row, itemIdx: self.items[row].itemIdx)
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let itemDetailVC = mainStoryboard.viewController(ItemDetailViewController.self)
+            let selectedItem = self.items[row]
+            itemDetailVC.selectedItemInfo = (selectedItem.itemIdx, selectedItem.name, selectedItem.store, selectedItem.img)
+            self.show(itemDetailVC, sender: nil)
+            //self.reportItem(row: row, itemIdx: self.items[row].itemIdx)
         }
         return cell
     }
 }
 
-extension ItemViewController: MailUsable {
+/*extension ItemViewController: MailUsable {
     func reportItem(row: Int, itemIdx: Int) {
         selectedItemIdxToReport = itemIdx
         let bodyTxt = """
@@ -192,9 +197,9 @@ extension ItemViewController {
         })
     }
 }
-
+*/
 // MARK: network
-extension ItemViewController {
+extension ItemViewController: AlertUsable {
     func getItems() {
         NetworkManager.sharedInstance.getItem(categoryIdx: selectedCategoryIdx, order: selectedOrder) { [weak self] (res) in
             guard let `self` = self else {
@@ -227,7 +232,7 @@ extension ItemViewController {
             }
         }
     }
-    func putReport(itemIdx: Int) {
+    /*func putReport(itemIdx: Int) {
         NetworkManager.sharedInstance.putReport(itemIdx: itemIdx) { [weak self] (res) in
             guard let `self` = self else {
                 return
@@ -245,5 +250,5 @@ extension ItemViewController {
                 }
             }
         }
-    }
+    }*/
 }
