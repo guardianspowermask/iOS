@@ -25,6 +25,7 @@
 		3B373CDF22E9B10B00FFAEB2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */; };
 		3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90323030295004D7949 /* KeyboardObserving.swift */; };
 		3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90923030309004D7949 /* Notification+Extension.swift */; };
+		3B6CB90D230308B5004D7949 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */; };
 		3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775C7E22E7005A00926A8C /* AppDelegate.swift */; };
 		3B775C8422E7005A00926A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8222E7005A00926A8C /* Main.storyboard */; };
 		3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8522E7005B00926A8C /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		3B6CB90323030295004D7949 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
 		3B6CB90923030309004D7949 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		3B775C7B22E7005A00926A8C /* KoreanGuardians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoreanGuardians.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B775C7E22E7005A00926A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B775C8322E7005A00926A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		3B6CB90B2303089E004D7949 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
 		3B775C7222E7005A00926A8C = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +239,7 @@
 				3B373CD822E99F9200FFAEB2 /* Category */,
 				3B373CD722E99F9100FFAEB2 /* Item */,
 				3BE6EFBA22FCEE8A007C46BF /* ItemDetail */,
+				3B6CB90B2303089E004D7949 /* Feedback */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -421,6 +432,7 @@
 				B8F63A5122EA499B0063B1E0 /* GuardiansAPI.swift in Sources */,
 				3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */,
 				3BE6EFBC22FCEE9F007C46BF /* ItemDetailViewController.swift in Sources */,
+				3B6CB90D230308B5004D7949 /* FeedbackViewController.swift in Sources */,
 				3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */,
 				3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */,
 				3BA6817222EB5D88000166F0 /* DefaultVO.swift in Sources */,
