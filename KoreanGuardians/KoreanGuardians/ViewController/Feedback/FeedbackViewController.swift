@@ -11,7 +11,6 @@ import UIKit
 class FeedbackViewController: UIViewController {
 
     @IBOutlet weak var feedbackImage: UIImageView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.feedbackImage.makeRounded(cornerRadius: 16)
@@ -19,17 +18,4 @@ class FeedbackViewController: UIViewController {
     @IBAction func touchOutsdie(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
