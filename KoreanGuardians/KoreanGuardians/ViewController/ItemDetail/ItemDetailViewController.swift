@@ -32,8 +32,10 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable {
         setTableView()
         setUI()
         //setupNavigationbar()
-        setKeyboardSetting()
+        //setKeyboardSetting()
         setTextField()
+        //setKeyboard([.dismissWhenTouchOutside])
+        registerForKeyboardEvents()
     }
     @IBAction func commentAction(_ sender: Any) {
         //if login
@@ -99,49 +101,23 @@ extension ItemDetailViewController: UITextFieldDelegate {
     }
 }
 
-//키보드 대응
-extension ItemDetailViewController {
-    func setKeyboardSetting() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    @objc func keyboardWillShow(_ notification: Notification) {
-        adjustKeyboardDismissGesture(isKeyboardVisible: true)
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+extension ItemDetailViewController: KeyboardObserving {
+    func keyboardWillShow(_ notification: Notification) {
             textfieldBottomView.snp.remakeConstraints({ (make) in
-                make.bottom.equalToSuperview().offset(-keyboardSize.height)
+                let keyboardHeight = notification.keyboardSize?.height ?? 0
+                make.bottom.equalToSuperview().offset(-keyboardHeight)
             })
             self.view.layoutIfNeeded()
-        }
     }
-    @objc func keyboardWillHide(_ notification: Notification) {
+    func keyboardWillHide(_ notification: Notification) {
         commentTextfield.text = ""
-        adjustKeyboardDismissGesture(isKeyboardVisible: false)
         textfieldBottomView.snp.remakeConstraints({ (make) in
             if #available(iOS 11.0, *) {
                 make.bottom.equalTo(self.view.safeAreaInsets.bottom)
             } else {
                 make.bottom.equalToSuperview()
-                // Fallback on earlier versions
             }
         })
         self.view.layoutIfNeeded()
-    }
-    //화면 바깥 터치했을때 키보드 없어지는 코드
-    func adjustKeyboardDismissGesture(isKeyboardVisible: Bool) {
-        if isKeyboardVisible {
-            if keyboardDismissGesture == nil {
-                keyboardDismissGesture = UITapGestureRecognizer(target: self, action: #selector(tapBackground))
-                view.addGestureRecognizer(keyboardDismissGesture!)
-            }
-        } else {
-            if keyboardDismissGesture != nil {
-                view.removeGestureRecognizer(keyboardDismissGesture!)
-                keyboardDismissGesture = nil
-            }
-        }
-    }
-    @objc func tapBackground() {
-        self.commentTextfield.endEditing(true)
     }
 }

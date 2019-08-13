@@ -23,6 +23,8 @@
 		3B373CDB22E9AB1B00FFAEB2 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDA22E9AB1B00FFAEB2 /* ItemTableViewCell.swift */; };
 		3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDC22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift */; };
 		3B373CDF22E9B10B00FFAEB2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */; };
+		3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90323030295004D7949 /* KeyboardObserving.swift */; };
+		3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90923030309004D7949 /* Notification+Extension.swift */; };
 		3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775C7E22E7005A00926A8C /* AppDelegate.swift */; };
 		3B775C8422E7005A00926A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8222E7005A00926A8C /* Main.storyboard */; };
 		3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8522E7005B00926A8C /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		3B373CDA22E9AB1B00FFAEB2 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		3B373CDC22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		3B6CB90323030295004D7949 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
+		3B6CB90923030309004D7949 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		3B775C7B22E7005A00926A8C /* KoreanGuardians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoreanGuardians.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B775C7E22E7005A00926A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B775C8322E7005A00926A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				3B373CD322E9945100FFAEB2 /* UIPresentable.swift */,
 				3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */,
 				B8F63A5522EA615B0063B1E0 /* MailUsable.swift */,
+				3B6CB90323030295004D7949 /* KeyboardObserving.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */,
 				B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */,
 				B8F63A4822EA3C2E0063B1E0 /* String+Extension.swift */,
+				3B6CB90923030309004D7949 /* Notification+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -402,11 +408,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */,
 				B8F63A4D22EA49060063B1E0 /* NetworkManager.swift in Sources */,
 				B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */,
 				B8F63A4922EA3C2E0063B1E0 /* String+Extension.swift in Sources */,
 				3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */,
 				3B373CD422E9945100FFAEB2 /* UIPresentable.swift in Sources */,
+				3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */,
 				3B373CD622E99F8E00FFAEB2 /* ItemViewController.swift in Sources */,
 				3B373CC822E9353700FFAEB2 /* UITableView+Extension.swift in Sources */,
 				3B373CDB22E9AB1B00FFAEB2 /* ItemTableViewCell.swift in Sources */,
