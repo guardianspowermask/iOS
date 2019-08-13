@@ -26,6 +26,10 @@
 		3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90323030295004D7949 /* KeyboardObserving.swift */; };
 		3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90923030309004D7949 /* Notification+Extension.swift */; };
 		3B6CB90D230308B5004D7949 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */; };
+		3B6CBA7E23031F4E004D7949 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */; };
+		3B6CBA81230329E0004D7949 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA80230329E0004D7949 /* LoginViewController.swift */; };
+		3B6CBA85230338B3004D7949 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA84230338B3004D7949 /* UserData.swift */; };
+		3B6CBA8723033A74004D7949 /* LoginEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA8623033A74004D7949 /* LoginEntry.swift */; };
 		3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775C7E22E7005A00926A8C /* AppDelegate.swift */; };
 		3B775C8422E7005A00926A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8222E7005A00926A8C /* Main.storyboard */; };
 		3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8522E7005B00926A8C /* Assets.xcassets */; };
@@ -70,6 +74,10 @@
 		3B6CB90323030295004D7949 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
 		3B6CB90923030309004D7949 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		3B6CBA80230329E0004D7949 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3B6CBA84230338B3004D7949 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		3B6CBA8623033A74004D7949 /* LoginEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntry.swift; sourceTree = "<group>"; };
 		3B775C7B22E7005A00926A8C /* KoreanGuardians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoreanGuardians.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B775C7E22E7005A00926A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B775C8322E7005A00926A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */,
+				3B6CBA7E23031F4E004D7949 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +130,7 @@
 				3B373CBF22E9332800FFAEB2 /* CategoryVO.swift */,
 				3B373CC122E9338000FFAEB2 /* ItemVO.swift */,
 				3BA6817122EB5D88000166F0 /* DefaultVO.swift */,
+				3B6CBA84230338B3004D7949 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +168,14 @@
 				3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */,
 			);
 			path = Feedback;
+			sourceTree = "<group>";
+		};
+		3B6CBA7F230329D6004D7949 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3B6CBA80230329E0004D7949 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		3B775C7222E7005A00926A8C = {
@@ -214,6 +232,7 @@
 				3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */,
 				B8F63A5522EA615B0063B1E0 /* MailUsable.swift */,
 				3B6CB90323030295004D7949 /* KeyboardObserving.swift */,
+				3B6CBA8623033A74004D7949 /* LoginEntry.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -236,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				3B373CD922E99F9400FFAEB2 /* LaunchScreen */,
+				3B6CBA7F230329D6004D7949 /* Login */,
 				3B373CD822E99F9200FFAEB2 /* Category */,
 				3B373CD722E99F9100FFAEB2 /* Item */,
 				3BE6EFBA22FCEE8A007C46BF /* ItemDetail */,
@@ -256,6 +276,7 @@
 		7DF62C6EE5E77B61A082ACED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */,
 				61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */,
 			);
 			name = Frameworks;
@@ -431,7 +452,9 @@
 				3B373CDB22E9AB1B00FFAEB2 /* ItemTableViewCell.swift in Sources */,
 				B8F63A5122EA499B0063B1E0 /* GuardiansAPI.swift in Sources */,
 				3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */,
+				3B6CBA8723033A74004D7949 /* LoginEntry.swift in Sources */,
 				3BE6EFBC22FCEE9F007C46BF /* ItemDetailViewController.swift in Sources */,
+				3B6CBA81230329E0004D7949 /* LoginViewController.swift in Sources */,
 				3B6CB90D230308B5004D7949 /* FeedbackViewController.swift in Sources */,
 				3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */,
 				3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */,
@@ -444,6 +467,7 @@
 				3BE6EFC222FCF454007C46BF /* ItemDetailTableViewCell.swift in Sources */,
 				B8F63A5622EA615B0063B1E0 /* MailUsable.swift in Sources */,
 				3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */,
+				3B6CBA85230338B3004D7949 /* UserData.swift in Sources */,
 				3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */,
 				B8F63A4B22EA48EF0063B1E0 /* Networkable.swift in Sources */,
 				B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */,
@@ -612,12 +636,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4XABUQ539;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KoreanGuardians/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sujinnaljin.pealluck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -632,12 +661,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4XABUQ539;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KoreanGuardians/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sujinnaljin.pealluck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

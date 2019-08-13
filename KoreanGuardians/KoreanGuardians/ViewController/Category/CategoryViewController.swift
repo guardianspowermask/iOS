@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController, LoginEntry {
 
     @IBOutlet private weak var keywordLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -25,6 +25,7 @@ class CategoryViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkLogin()
         setLabelAttr()
         setButtonAttr()
         setCollectionView()
@@ -47,6 +48,11 @@ class CategoryViewController: UIViewController {
     func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    func checkLogin() {
+        if !UserData.isUserLogin {
+            self.toLoginViewController()
+        }
     }
 }
 
