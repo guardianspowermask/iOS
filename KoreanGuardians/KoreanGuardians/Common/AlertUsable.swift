@@ -20,4 +20,19 @@ extension AlertUsable {
         alert.addAction(okAction)
         self.viewController.present(alert, animated: true)
     }
+    func simpleActionSheet(title: String?,
+                           message: String?,
+                           okTitle: String,
+                           actions: [[String : ((UIAlertAction) -> Void)?]],
+                           okHandler: ((UIAlertAction) -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        for (action) in actions {
+            for (key, value) in action {
+                alert.addAction(UIAlertAction(title: key, style: .default, handler: value))
+            }
+        }
+        let cancleAction = UIAlertAction(title: okTitle, style: .cancel)
+        alert.addAction(cancleAction)
+        self.viewController.present(alert, animated: true)
+    }
 }

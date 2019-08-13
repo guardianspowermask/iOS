@@ -34,27 +34,14 @@ class ItemViewController: UIViewController, NibLoadable {
         getItems()
     }
     @IBAction func sortAction(_ sender: Any) {
-        let alert = UIAlertController(title: "정렬기준을 선택하세요", message: nil, preferredStyle: .actionSheet)
-        let okTitle = "확인"
-        let popularSort = UIAlertAction(title: "인기순", style: .default) { (_) in
-            sortAction(sort: 0)
-        }
-        let latestSort = UIAlertAction(title: "최신순", style: .default) { (_) in
-            sortAction(sort: 1)
-        }
-        let nameSort = UIAlertAction(title: "이름순", style: .default) { (_) in
-            sortAction(sort: 2)
-        }
-        let cancleAction = UIAlertAction(title: "취소", style: .cancel)
-        alert.addAction(popularSort)
-        alert.addAction(latestSort)
-        alert.addAction(nameSort)
-        alert.addAction(cancleAction)
+        let popularSort: [String: ((UIAlertAction) -> Void)?] = ["인기순": {(_) in sortAction(sort: 0)}]
+        let latestSort: [String: ((UIAlertAction) -> Void)?] = ["최신순": {(_) in sortAction(sort: 1)}]
+        let nameSort: [String: ((UIAlertAction) -> Void)?] = ["이름순": {(_) in sortAction(sort: 2)}]
+        self.simpleActionSheet(title: "정렬기준을 선택하세요", message: nil, okTitle: "취소", actions: [popularSort, latestSort, nameSort])
         func sortAction(sort: Int) {
             selectedOrder = sort
             getItems()
         }
-        present(alert, animated: true)
     }
     func selectInitialCategory() {
         self.collectionView.selectItem(at: IndexPath(item: selectedCategoryRow, section: 0), animated: true, scrollPosition: .centeredHorizontally)

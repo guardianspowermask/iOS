@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable {
+class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, LoginEntry {
 
     @IBOutlet private weak var itemImage: UIImageView!
     @IBOutlet private weak var itemNameLabel: UILabel!
@@ -19,6 +19,7 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable {
     @IBOutlet weak var textfieldBottomView: UIView!
     @IBOutlet private weak var textfieldBackgroundView: UIView!
     @IBOutlet private weak var commentTextfield: UITextField!
+    @IBOutlet private weak var feedbackButton: UIButton!
     var selectedItemInfo: (index: Int, name: String, store: String, image: String)?
     private var keyboardDismissGesture: UITapGestureRecognizer?
     var sampleComments = ["hi", "sujin", "hi", "sujin", "hi", "sujin", "hi", "sujin"] {
@@ -32,18 +33,21 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable {
         setTableView()
         setUI()
         //setupNavigationbar()
-        //setKeyboardSetting()
         setTextField()
-        //setKeyboard([.dismissWhenTouchOutside])
         registerForKeyboardEvents()
+    }
+    deinit {
+        unregisterFromKeyboardEvents()
     }
     @IBAction func commentAction(_ sender: Any) {
         //if login
-        print("\(commentTextfield.text)로 통신")
-        //else
-        self.simpleAlert(title: "댓글을 달수 없습니다", message: "로그인 후 이용해주세요", okHandler: {(_) in
-            print("로그인 화면 이동")
-        })
+        if !UserData.isUserLogin {
+            self.simpleAlert(title: "댓글을 달수 없습니다", message: "로그인 후 이용해주세요", okHandler: {(_) in
+                self.toLoginViewController()
+            })
+        } else {
+             print("\(commentTextfield.text)로 통신")
+        }
     }
 //    func setupNavigationbar() {
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -63,6 +67,8 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable {
         self.itemNameLabel.text = selectedItemInfo.name
         self.itemStoreLabel.text = "제조사 / "+selectedItemInfo.store
         self.textfieldBackgroundView.makeRounded(cornerRadius: self.textfieldBackgroundView.frame.height/2)
+        let feedbackImageName = "grayFeedback"
+        self.feedbackButton.setImage(UIImage(named: feedbackImageName), for: .normal)
     }
     func setTextField() {
         self.commentTextfield.delegate = self
@@ -75,8 +81,19 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.cell(for: ItemDetailTableViewCell.self)
-        cell.configure(data: sampleComments[indexPath.row])
+        cell.configure(data: sampleComments[indexPath.row], row: indexPath.row)
+        cell.setCallback {[weak self] (row: Int) in
+            guard let self = self else {
+                return
+            }
+            self.showReportAlert(index: row)
+            //self.reportItem(row: row, itemIdx: self.items[row].itemIdx)
+        }
         return cell
+    }
+    func showReportAlert(index: Int) {
+        let reportAction: [String: ((UIAlertAction) -> Void)?] = ["신고" : {(_) in print("reportreport")}]
+        self.simpleActionSheet(title: nil, message: nil, okTitle: "확인", actions: [reportAction])
     }
 }
 
@@ -98,6 +115,13 @@ extension ItemDetailViewController: UITextFieldDelegate {
             print("enter 누름")
         }
         return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if !UserData.isUserLogin {
+            self.simpleAlert(title: "댓글을 달수 없습니다", message: "로그인 후 이용해주세요", okHandler: {(_) in
+                self.toLoginViewController()
+            })
+        }
     }
 }
 
