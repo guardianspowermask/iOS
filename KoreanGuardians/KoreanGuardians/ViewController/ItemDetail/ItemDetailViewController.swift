@@ -28,13 +28,21 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
             self.reportCountLabel.text = "1"
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = .white
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
         setUI()
-        //setupNavigationbar()
+        setupNavigationbar()
         setTextField()
         registerForKeyboardEvents()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.tintColor = .black
     }
     deinit {
         unregisterFromKeyboardEvents()
@@ -49,12 +57,12 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
              print("\(commentTextfield.text)로 통신")
         }
     }
-//    func setupNavigationbar() {
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = .clear
-//    }
+    func setupNavigationbar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -92,7 +100,7 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func showReportAlert(index: Int) {
-        let reportAction: [String: ((UIAlertAction) -> Void)?] = ["신고" : {(_) in print("reportreport")}]
+        let reportAction: [String: ((UIAlertAction) -> Void)?] = ["신고": {(_) in print("reportreport")}]
         self.simpleActionSheet(title: nil, message: nil, okTitle: "확인", actions: [reportAction])
     }
 }
@@ -100,17 +108,6 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
 //textField
 extension ItemDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.text == "" {
-            simpleAlert(title: "오류", message: "검색어를 입력해주세요")
-            return false
-        }
-        if let myString = textField.text {
-            let emptySpacesCount = myString.components(separatedBy: " ").count-1
-            if emptySpacesCount == myString.count {
-                simpleAlert(title: "오류", message: "검색어를 입력하세요")
-                return false
-            }
-        }
         if let searchString = textField.text {
             print("enter 누름")
         }
