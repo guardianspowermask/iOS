@@ -23,7 +23,7 @@ extension AlertUsable {
     func simpleActionSheet(title: String?,
                            message: String?,
                            okTitle: String,
-                           actions: [[String : ((UIAlertAction) -> Void)?]],
+                           actions: [[String: ((UIAlertAction) -> Void)?]],
                            okHandler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         for (action) in actions {
