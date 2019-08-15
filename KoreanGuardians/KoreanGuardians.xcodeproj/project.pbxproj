@@ -23,6 +23,13 @@
 		3B373CDB22E9AB1B00FFAEB2 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDA22E9AB1B00FFAEB2 /* ItemTableViewCell.swift */; };
 		3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDC22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift */; };
 		3B373CDF22E9B10B00FFAEB2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */; };
+		3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90323030295004D7949 /* KeyboardObserving.swift */; };
+		3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90923030309004D7949 /* Notification+Extension.swift */; };
+		3B6CB90D230308B5004D7949 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */; };
+		3B6CBA7E23031F4E004D7949 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */; };
+		3B6CBA81230329E0004D7949 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA80230329E0004D7949 /* LoginViewController.swift */; };
+		3B6CBA85230338B3004D7949 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA84230338B3004D7949 /* UserData.swift */; };
+		3B6CBA8723033A74004D7949 /* LoginEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA8623033A74004D7949 /* LoginEntry.swift */; };
 		3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775C7E22E7005A00926A8C /* AppDelegate.swift */; };
 		3B775C8422E7005A00926A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8222E7005A00926A8C /* Main.storyboard */; };
 		3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B775C8522E7005B00926A8C /* Assets.xcassets */; };
@@ -33,6 +40,9 @@
 		3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1A22E7334300926A8C /* NibLoadable.swift */; };
 		3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */; };
 		3BA6817222EB5D88000166F0 /* DefaultVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA6817122EB5D88000166F0 /* DefaultVO.swift */; };
+		3BE6EFBC22FCEE9F007C46BF /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EFBB22FCEE9F007C46BF /* ItemDetailViewController.swift */; };
+		3BE6EFBE22FCF1E2007C46BF /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3BE6EFBD22FCF1E1007C46BF /* NotoSansKR-Bold.otf */; };
+		3BE6EFC222FCF454007C46BF /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6EFC122FCF454007C46BF /* ItemDetailTableViewCell.swift */; };
 		8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */; };
 		B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */; };
 		B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */; };
@@ -61,6 +71,13 @@
 		3B373CDA22E9AB1B00FFAEB2 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		3B373CDC22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		3B6CB90323030295004D7949 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
+		3B6CB90923030309004D7949 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		3B6CBA80230329E0004D7949 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3B6CBA84230338B3004D7949 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		3B6CBA8623033A74004D7949 /* LoginEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntry.swift; sourceTree = "<group>"; };
 		3B775C7B22E7005A00926A8C /* KoreanGuardians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoreanGuardians.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B775C7E22E7005A00926A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B775C8322E7005A00926A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +95,9 @@
 		3B775D1A22E7334300926A8C /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		3B775D1C22E733D300926A8C /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		3BA6817122EB5D88000166F0 /* DefaultVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVO.swift; sourceTree = "<group>"; };
+		3BE6EFBB22FCEE9F007C46BF /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		3BE6EFBD22FCF1E1007C46BF /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		3BE6EFC122FCF454007C46BF /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
 		61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KoreanGuardians.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF5BDAFFB64351D4DB9FE87 /* Pods-KoreanGuardians.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KoreanGuardians.release.xcconfig"; path = "Target Support Files/Pods-KoreanGuardians/Pods-KoreanGuardians.release.xcconfig"; sourceTree = "<group>"; };
 		B8F63A4222EA22CB0063B1E0 /* CategoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLayout.swift; sourceTree = "<group>"; };
@@ -97,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */,
+				3B6CBA7E23031F4E004D7949 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +130,7 @@
 				3B373CBF22E9332800FFAEB2 /* CategoryVO.swift */,
 				3B373CC122E9338000FFAEB2 /* ItemVO.swift */,
 				3BA6817122EB5D88000166F0 /* DefaultVO.swift */,
+				3B6CBA84230338B3004D7949 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,12 +162,29 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		3B6CB90B2303089E004D7949 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		3B6CBA7F230329D6004D7949 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3B6CBA80230329E0004D7949 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		3B775C7222E7005A00926A8C = {
 			isa = PBXGroup;
 			children = (
 				3B775C9F22E728AD00926A8C /* .swiftlint.yml */,
 				3B0ED39F22EB683E00F9D1F6 /* pealluck.gif */,
 				3B0ED3A122F0D6B600F9D1F6 /* NotoSansKR-Light.otf */,
+				3BE6EFBD22FCF1E1007C46BF /* NotoSansKR-Bold.otf */,
 				3B0ED3A222F0D6B600F9D1F6 /* NotoSansKR-Medium.otf */,
 				3B0ED3A322F0D6B600F9D1F6 /* NotoSansKR-Regular.otf */,
 				3B775C7D22E7005A00926A8C /* KoreanGuardians */,
@@ -192,6 +231,8 @@
 				3B373CD322E9945100FFAEB2 /* UIPresentable.swift */,
 				3B373CD122E98E4F00FFAEB2 /* AlertUsable.swift */,
 				B8F63A5522EA615B0063B1E0 /* MailUsable.swift */,
+				3B6CB90323030295004D7949 /* KeyboardObserving.swift */,
+				3B6CBA8623033A74004D7949 /* LoginEntry.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -205,6 +246,7 @@
 				3B373CDE22E9B10B00FFAEB2 /* UIView+Extension.swift */,
 				B8F63A4622EA3C250063B1E0 /* Data+Extension.swift */,
 				B8F63A4822EA3C2E0063B1E0 /* String+Extension.swift */,
+				3B6CB90923030309004D7949 /* Notification+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,15 +255,28 @@
 			isa = PBXGroup;
 			children = (
 				3B373CD922E99F9400FFAEB2 /* LaunchScreen */,
+				3B6CBA7F230329D6004D7949 /* Login */,
 				3B373CD822E99F9200FFAEB2 /* Category */,
 				3B373CD722E99F9100FFAEB2 /* Item */,
+				3BE6EFBA22FCEE8A007C46BF /* ItemDetail */,
+				3B6CB90B2303089E004D7949 /* Feedback */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3BE6EFBA22FCEE8A007C46BF /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3BE6EFBB22FCEE9F007C46BF /* ItemDetailViewController.swift */,
+				3BE6EFC122FCF454007C46BF /* ItemDetailTableViewCell.swift */,
+			);
+			path = ItemDetail;
 			sourceTree = "<group>";
 		};
 		7DF62C6EE5E77B61A082ACED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */,
 				61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */,
 			);
 			name = Frameworks;
@@ -310,6 +365,7 @@
 				3B775CA022E728AD00926A8C /* .swiftlint.yml in Resources */,
 				3B775C8922E7005B00926A8C /* LaunchScreen.storyboard in Resources */,
 				3B0ED3A522F0D6B700F9D1F6 /* NotoSansKR-Medium.otf in Resources */,
+				3BE6EFBE22FCF1E2007C46BF /* NotoSansKR-Bold.otf in Resources */,
 				3B775C9622E71CD700926A8C /* InfoPlist.strings in Resources */,
 				3B775C8622E7005B00926A8C /* Assets.xcassets in Resources */,
 				3B0ED3A022EB683E00F9D1F6 /* pealluck.gif in Resources */,
@@ -384,16 +440,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */,
 				B8F63A4D22EA49060063B1E0 /* NetworkManager.swift in Sources */,
 				B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */,
 				B8F63A4922EA3C2E0063B1E0 /* String+Extension.swift in Sources */,
 				3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */,
 				3B373CD422E9945100FFAEB2 /* UIPresentable.swift in Sources */,
+				3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */,
 				3B373CD622E99F8E00FFAEB2 /* ItemViewController.swift in Sources */,
 				3B373CC822E9353700FFAEB2 /* UITableView+Extension.swift in Sources */,
 				3B373CDB22E9AB1B00FFAEB2 /* ItemTableViewCell.swift in Sources */,
 				B8F63A5122EA499B0063B1E0 /* GuardiansAPI.swift in Sources */,
 				3B373CCA22E9355400FFAEB2 /* UICollectionView+Extension.swift in Sources */,
+				3B6CBA8723033A74004D7949 /* LoginEntry.swift in Sources */,
+				3BE6EFBC22FCEE9F007C46BF /* ItemDetailViewController.swift in Sources */,
+				3B6CBA81230329E0004D7949 /* LoginViewController.swift in Sources */,
+				3B6CB90D230308B5004D7949 /* FeedbackViewController.swift in Sources */,
 				3B373CDD22E9AB3000FFAEB2 /* ItemCollectionViewCell.swift in Sources */,
 				3B775D1B22E7334300926A8C /* NibLoadable.swift in Sources */,
 				3BA6817222EB5D88000166F0 /* DefaultVO.swift in Sources */,
@@ -402,8 +464,10 @@
 				3B775C7F22E7005A00926A8C /* AppDelegate.swift in Sources */,
 				B8F63A4F22EA49250063B1E0 /* NetworkResult.swift in Sources */,
 				3B373CDF22E9B10B00FFAEB2 /* UIView+Extension.swift in Sources */,
+				3BE6EFC222FCF454007C46BF /* ItemDetailTableViewCell.swift in Sources */,
 				B8F63A5622EA615B0063B1E0 /* MailUsable.swift in Sources */,
 				3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */,
+				3B6CBA85230338B3004D7949 /* UserData.swift in Sources */,
 				3B373CCC22E935B100FFAEB2 /* CategoryCollectionViewCell.swift in Sources */,
 				B8F63A4B22EA48EF0063B1E0 /* Networkable.swift in Sources */,
 				B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */,
@@ -572,12 +636,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4XABUQ539;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KoreanGuardians/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sujinnaljin.pealluck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -592,12 +661,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4XABUQ539;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KoreanGuardians/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sujinnaljin.pealluck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

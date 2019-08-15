@@ -9,6 +9,7 @@ pod 'SwiftyJSON'
 pod 'Kingfisher'
 pod 'SwiftLint'
 pod 'SwiftGifOrigin', '~> 1.6.1'
+pod 'SnapKit'
 
   # Pods for KoreanGuardians
 
