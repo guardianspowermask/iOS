@@ -26,11 +26,11 @@ struct Item: Codable {
     let itemIdx: Int
     let name, img: String
     let reportCnt: Int
-    let store, email, facebook: String
+    let store: String
     enum CodingKeys: String, CodingKey {
         case itemIdx = "item_idx"
         case name, img
         case reportCnt = "report_cnt"
-        case store, email, facebook
+        case store
     }
 }
