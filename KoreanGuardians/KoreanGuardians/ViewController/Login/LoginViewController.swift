@@ -10,13 +10,19 @@ import UIKit
 import KakaoOpenSDK
 
 class LoginViewController: UIViewController, NibLoadable {
-
+    @IBOutlet weak var skipLoginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setButtonAttr()
     }
-
+    func setButtonAttr() {
+        let skipLoginButtonAttr: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15),
+                                                                  .foregroundColor: UIColor.lightGray,
+                                                                  .underlineStyle: NSUnderlineStyle.single.rawValue]
+        let attributeString = NSMutableAttributedString(string: "로그인없이 이용하기",
+                                                        attributes: skipLoginButtonAttr)
+        skipLoginButton.setAttributedTitle(attributeString, for: .normal)
+        }
     @IBAction func kakaoLogin(_ sender: Any) {
         //이전 카카오톡 세션 열려있으면 닫기
         guard let session = KOSession.shared() else {

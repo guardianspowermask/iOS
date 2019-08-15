@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MessageUI
+//import MessageUI
 
 class ItemViewController: UIViewController, NibLoadable {
 
