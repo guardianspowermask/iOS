@@ -50,9 +50,7 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
     @IBAction func commentAction(_ sender: Any) {
         //if login
         if !UserData.isUserLogin {
-            self.simpleAlert(title: "댓글을 달수 없습니다", message: "로그인 후 이용해주세요", okHandler: {(_) in
-                self.toLoginViewController()
-            })
+            showLoginAlert()
         } else {
              print("\(commentTextfield.text)로 통신")
         }
@@ -81,6 +79,11 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
     func setTextField() {
         self.commentTextfield.delegate = self
     }
+    func showLoginAlert() {
+        self.simpleAlert(title: "댓글을 달수 없습니다", message: "로그인 후 이용해주세요", okHandler: {(_) in
+            self.toLoginViewController()
+        })
+    }
 }
 
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -94,8 +97,12 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
             guard let self = self else {
                 return
             }
-            self.showReportAlert(index: row)
-            //self.reportItem(row: row, itemIdx: self.items[row].itemIdx)
+            if !UserData.isUserLogin {
+                self.showLoginAlert()
+            } else {
+                self.showReportAlert(index: row)
+                //self.reportItem(row: row, itemIdx: self.items[row].itemIdx)
+            }
         }
         return cell
     }
@@ -115,9 +122,7 @@ extension ItemDetailViewController: UITextFieldDelegate {
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if !UserData.isUserLogin {
-            self.simpleAlert(title: "댓글을 달수 없습니다", message: "로그인 후 이용해주세요", okHandler: {(_) in
-                self.toLoginViewController()
-            })
+            showLoginAlert()
         }
     }
 }
