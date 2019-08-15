@@ -20,7 +20,7 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
     @IBOutlet private weak var textfieldBackgroundView: UIView!
     @IBOutlet private weak var commentTextfield: UITextField!
     @IBOutlet private weak var feedbackButton: UIButton!
-    var selectedItemInfo: (index: Int, name: String, store: String, image: String)?
+    var selectedItemInfo: (index: Int?, name: String?, store: String?, image: String?)?
     private var keyboardDismissGesture: UITapGestureRecognizer?
     var sampleComments = ["hi", "sujin", "hi", "sujin", "hi", "sujin", "hi", "sujin"] {
         didSet {
@@ -52,7 +52,7 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
         if !UserData.isUserLogin {
             showLoginAlert()
         } else {
-             print("\(commentTextfield.text)로 통신")
+            print("\(String(describing: commentTextfield.text))로 통신")
         }
     }
     func setupNavigationbar() {
@@ -69,9 +69,9 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
         guard let selectedItemInfo = self.selectedItemInfo else {
             return
         }
-        self.itemImage.kf.setImage(with: URL(string: selectedItemInfo.image))
+        self.itemImage.kf.setImage(with: URL(string: selectedItemInfo.image ?? ""))
         self.itemNameLabel.text = selectedItemInfo.name
-        self.itemStoreLabel.text = "제조사 / "+selectedItemInfo.store
+        self.itemStoreLabel.text = "제조사 / \(selectedItemInfo.store ?? "")"
         self.textfieldBackgroundView.makeRounded(cornerRadius: self.textfieldBackgroundView.frame.height/2)
         let feedbackImageName = "grayFeedback"
         self.feedbackButton.setImage(UIImage(named: feedbackImageName), for: .normal)

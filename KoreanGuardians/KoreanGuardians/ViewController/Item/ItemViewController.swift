@@ -72,7 +72,7 @@ extension ItemViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-        selectedCategoryIdx = categories[indexPath.row].categoryIdx
+        selectedCategoryIdx = categories[indexPath.row].categoryIdx ?? 0
         getItems()
     }
 }
@@ -80,7 +80,7 @@ extension ItemViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension ItemViewController: CategoryLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         widthForCategoryAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return CGFloat(((categories[indexPath.item].name.count)*14)+24)
+        return CGFloat(((categories[indexPath.item].name?.count ?? 0)*14)+24)
     }
 }
 
@@ -194,8 +194,8 @@ extension ItemViewController: AlertUsable {
             }
             switch res {
             case .success(let data):
-                self.items = data.items
-                self.itemCountLabel.text = data.totalCnt.description+"건"
+                self.items = data.items ?? []
+                self.itemCountLabel.text = (data.totalCnt ?? 0).description + "건"
                 var orderTxt = ""
                 switch self.selectedOrder {
                 case 0:

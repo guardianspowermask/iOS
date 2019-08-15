@@ -19,7 +19,10 @@ extension NetworkManager {
         fetchData(api: .getCategory, networkData: CategoryVO.self) { (result) in
             switch result {
             case .success(let successResult):
-                completion(.success(successResult.resResult.data))
+                guard let data = successResult.resResult.data else {
+                    return
+                }
+                completion(.success(data))
             case .failure(let errorType):
                 switch errorType {
                 case .networkConnectFail:
@@ -34,7 +37,10 @@ extension NetworkManager {
         fetchData(api: .getItem(categoryIdx: categoryIdx, order: order), networkData: ItemVO.self) { (result) in
             switch result {
             case .success(let successResult):
-                completion(.success(successResult.resResult.data))
+                guard let data = successResult.resResult.data else {
+                    return
+                }
+                completion(.success(data))
             case .failure(let errorType):
                 switch errorType {
                 case .networkConnectFail:

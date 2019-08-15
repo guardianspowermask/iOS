@@ -9,16 +9,16 @@
 import Foundation
 
 struct CategoryVO: Codable {
-    let message: String
-    let data: [Category]
+    let message: String?
+    let data: [Category]?
 }
 
 struct Category: Codable {
-    let categoryIdx: Int
-    let name: String
-    let itemCnt: Int
-    let img: String
-    let replaceWords: [String]
+    let categoryIdx: Int?
+    let name: String?
+    let itemCnt: Int?
+    let img: String?
+    let replaceWords: [String]?
     enum CodingKeys: String, CodingKey {
         case categoryIdx = "category_idx"
         case name
