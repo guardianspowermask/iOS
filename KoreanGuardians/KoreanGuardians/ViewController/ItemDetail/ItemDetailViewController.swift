@@ -15,6 +15,7 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
     @IBOutlet private weak var itemNameLabel: UILabel!
     @IBOutlet private weak var itemStoreLabel: UILabel!
     @IBOutlet private weak var reportCountLabel: UILabel!
+    @IBOutlet private weak var defaultView: UIView!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var textfieldBottomView: UIView!
     @IBOutlet private weak var textfieldBackgroundView: UIView!
@@ -22,10 +23,11 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
     @IBOutlet private weak var feedbackButton: UIButton!
     var selectedItemInfo: (index: Int?, name: String?, store: String?, image: String?)?
     private var keyboardDismissGesture: UITapGestureRecognizer?
-    var sampleComments = ["hi", "sujin", "hi", "sujin", "hi", "sujin", "hi", "sujin"] {
+    var sampleComments: [String] = ["hi", "sujin"] {
         didSet {
             self.tableView.reloadData()
             self.reportCountLabel.text = "1"
+            self.setDefaultView()
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +77,7 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
         self.textfieldBackgroundView.makeRounded(cornerRadius: self.textfieldBackgroundView.frame.height/2)
         let feedbackImageName = "grayFeedback"
         self.feedbackButton.setImage(UIImage(named: feedbackImageName), for: .normal)
+        self.setDefaultView()
     }
     func setTextField() {
         self.commentTextfield.delegate = self
@@ -83,6 +86,9 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
         self.simpleAlert(title: "댓글을 달수 없습니다", message: "로그인 후 이용해주세요", okHandler: {(_) in
             self.toLoginViewController()
         })
+    }
+    func setDefaultView() {
+        self.defaultView.isHidden = sampleComments.count > 0
     }
 }
 
