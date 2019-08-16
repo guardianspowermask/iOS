@@ -39,6 +39,7 @@ class LoginViewController: UIViewController, NibLoadable {
                 if session.isOpen() {
                     //accessToken
                     if let accessToken = session.token?.accessToken {
+                        
                         UserData.setUserDefault(value: accessToken, key: .accessToken)
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -64,4 +65,8 @@ class LoginViewController: UIViewController, NibLoadable {
     @IBAction func skipLogin(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+}
+
+extension LoginViewController {
+    
 }

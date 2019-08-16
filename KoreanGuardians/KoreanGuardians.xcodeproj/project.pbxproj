@@ -124,6 +124,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B1FD4C82306EF29007C915C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */,
+				B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */,
+				B8F63A4A22EA48EF0063B1E0 /* Networkable.swift */,
+				B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		3B373CBE22E9330F00FFAEB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +216,7 @@
 		3B775C7D22E7005A00926A8C /* KoreanGuardians */ = {
 			isa = PBXGroup;
 			children = (
+				3B1FD4C82306EF29007C915C /* Networking */,
 				3B775D1922E7333400926A8C /* Common */,
 				3B775D1E22E7342300926A8C /* Extensions */,
 				3B373CBE22E9330F00FFAEB2 /* Model */,
@@ -216,10 +228,6 @@
 				3B775C8722E7005B00926A8C /* LaunchScreen.storyboard */,
 				3B775C8A22E7005B00926A8C /* Info.plist */,
 				3B775C9822E71CD700926A8C /* InfoPlist.strings */,
-				B8F63A4A22EA48EF0063B1E0 /* Networkable.swift */,
-				B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */,
-				B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */,
-				B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */,
 			);
 			path = KoreanGuardians;
 			sourceTree = "<group>";
