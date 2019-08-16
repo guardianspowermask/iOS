@@ -24,49 +24,32 @@ class LoginViewController: UIViewController, NibLoadable {
         skipLoginButton.setAttributedTitle(attributeString, for: .normal)
         }
     @IBAction func kakaoLogin(_ sender: Any) {
-        //이전 카카오톡 세션 열려있으면 닫기
-        guard let session = KOSession.shared() else {
-            return
-        }
-        if session.isOpen() {
-            session.close()
-        }
-        session.open(completionHandler: { [weak self] (error) -> Void in
-            guard let self = self else {
-                return
-            }
-            if error == nil {
-                if session.isOpen() {
-                    //accessToken
-                    if let accessToken = session.token?.accessToken {
-                        
-                        UserData.setUserDefault(value: accessToken, key: .accessToken)
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                } else {
-                    print("Login failed")
-                }
-            } else {
-                print("Login error : \(String(describing: error))")
-            }
-            if !session.isOpen() {
-                if let error = error as NSError? {
-                    switch error.code {
-                    case Int(KOErrorCancelled.rawValue):
-                        break
-                    default:
-                        //간편 로그인 취소
-                        print("error : \(error.description)")
-                    }
-                }
-            }
-        })
+        
     } //kakao login
     @IBAction func skipLogin(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 }
 
-extension LoginViewController {
-    
+extension LoginViewController: AlertUsable {
+    func login(kakaoId: String, userName: String) {
+        NetworkManager.sharedInstance.login(kakaoId: kakaoId, userName: userName) { [weak self] (res) in
+            guard let `self` = self else {
+                return
+            }
+            switch res {
+            case .success(let authorization):
+                UserData.setUserDefault(value: authorization, key: .authorization)
+                self.dismiss(animated: true, completion: nil)
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail:
+                    self.simpleAlert(title: "오류", message: "네트워크 연결상태를 확인해주세요")
+                case .networkError(let msg):
+                    self.simpleAlert(title: "오류", message: "잠시후 다시 시도해주세요")
+                    print("error log is "+msg)
+                }
+            }
+        }
+    }
 }

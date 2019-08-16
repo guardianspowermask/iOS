@@ -9,7 +9,7 @@
 import Foundation
 
 enum UserDataKey: String {
-    case accessToken = "accessToken"
+    case authorization = "authorization"
 }
 
 struct UserData {
@@ -20,7 +20,7 @@ struct UserData {
         return UserDefaults.standard.value(forKey: key.rawValue) as? T
     }
     static var isUserLogin: Bool {
-        if UserData.getUserDefault(key: .accessToken, type: String.self) == nil {
+        if UserData.getUserDefault(key: .authorization, type: String.self) == nil {
             return false
         } else {
             return true
