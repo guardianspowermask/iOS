@@ -12,7 +12,11 @@ import Moya
 enum GuardiansAPI {
     case getCategory
     case getItem(categoryIdx: Int, order: Int)
-    case putReport(itemIdx: Int)
+    case login(kakaoId: String, userName: String)
+    case getComment(itemIdx: Int)
+    case writeComment(itemIdx: Int, content: String)
+    case getFeedback(itemIdx: Int)
+    case reportComment(commentIdx: Int)
 }
 
 extension GuardiansAPI: TargetType {
@@ -28,16 +32,24 @@ extension GuardiansAPI: TargetType {
             return "/category"
         case .getItem(let categoryIdx, let order):
             return "/item/\(categoryIdx)/\(order)"
-        case .putReport(let itemIdx):
-            return "/item/\(itemIdx)/report"
+        case .login:
+            return "/login"
+        case .getComment(let itemIdx):
+            return "/comment/\(itemIdx)"
+        case .writeComment:
+            return "/comment"
+        case .getFeedback(let itemIdx):
+            return "/feedback/\(itemIdx)"
+        case .reportComment:
+            return "/report"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .getCategory, .getItem:
+        case .getCategory, .getItem, .getComment, .getFeedback:
             return .get
-        case .putReport:
-            return .put
+        case .login, .writeComment, .reportComment:
+            return .post
         }
     }
     var parameterEncoding: ParameterEncoding {
@@ -48,8 +60,19 @@ extension GuardiansAPI: TargetType {
     }
     var task: Task {
         switch self {
-        case .getCategory, .getItem, .putReport:
+        case .getCategory, .getItem, .getComment, .getFeedback:
             return .requestPlain
+        case .login(let kakaoId, let userName):
+            let parameters: [String: Any] = ["kakao_uuid": kakaoId,
+                                               "name": userName]
+             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .writeComment(let itemIdx, let content):
+            let parameters: [String: Any] = ["item_idx": itemIdx,
+                                               "content": content]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .reportComment(let commentIdx):
+            let parameters: [String: Any] = ["user_comment_idx": commentIdx]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
     }
     var validationType: ValidationType {

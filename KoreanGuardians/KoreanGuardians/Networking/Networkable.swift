@@ -13,7 +13,11 @@ protocol Networkable {
     var provider: MoyaProvider<GuardiansAPI> { get }
     func getCategory(completion: @escaping (NetworkResult<[Category]>) -> Void)
     func getItem(categoryIdx: Int, order: Int, completion: @escaping (NetworkResult<ItemData>) -> Void)
-    func putReport(itemIdx: Int, completion: @escaping (NetworkResult<DefaultVO>) -> Void)
+    func login(kakaoId: String, userName: String, completion: @escaping (NetworkResult<String>) -> Void)
+    func getComment(itemIdx: Int, completion: @escaping (NetworkResult<[Comment]>) -> Void)
+    func writeComment(itemIdx: Int, content: String, completion: @escaping (NetworkResult<String>) -> Void)
+    func getFeedback(itemIdx: Int, completion: @escaping (NetworkResult<Feedback>) -> Void)
+    func reportComment(commentIdx: Int, completion: @escaping (NetworkResult<String>) -> Void)
 }
 
 extension Networkable {
