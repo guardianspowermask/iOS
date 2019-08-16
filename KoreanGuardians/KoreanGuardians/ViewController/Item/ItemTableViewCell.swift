@@ -41,5 +41,11 @@ class ItemTableViewCell: UITableViewCell, NibLoadable {
         self.itemStoreLabel.text = data.store
         self.itemReportCountLabel.text = data.reportCnt?.description
         self.row = row
+        if let reportFlag = data.reportFlag {
+            let reportImageName = reportFlag ? "buttonDone" : "buttonProtest"
+            self.reporntButton.setImage(UIImage(named: reportImageName), for: .normal)
+        } else {
+            self.reporntButton.setImage(UIImage(named: "buttonProtest"), for: .normal)
+        }
     }
 }

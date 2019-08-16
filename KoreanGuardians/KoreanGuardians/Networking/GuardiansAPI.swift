@@ -79,6 +79,11 @@ extension GuardiansAPI: TargetType {
         return .successAndRedirectCodes
     }
     var headers: [String: String]? {
-        return ["Content-type": "application/json"]
+        if let authorization = UserData.getUserDefault(key: .authorization, type: String.self) {
+            return ["Content-type": "application/json",
+                    "Authorization": authorization]
+        } else {
+            return ["Content-type": "application/json"]
+        }
     }
 }

@@ -27,10 +27,14 @@ struct Item: Codable {
     let name, img: String?
     let reportCnt: Int?
     let store: String?
+    let feedbackFlag: Int?
+    let reportFlag: Bool?
     enum CodingKeys: String, CodingKey {
         case itemIdx = "item_idx"
         case name, img
         case reportCnt = "report_cnt"
         case store
+        case feedbackFlag = "feedback_flag"
+        case reportFlag = "report_flag"
     }
 }

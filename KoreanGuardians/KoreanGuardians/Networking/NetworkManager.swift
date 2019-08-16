@@ -88,7 +88,7 @@ extension NetworkManager {
         }
     }
     func writeComment(itemIdx: Int, content: String, completion: @escaping (NetworkResult<String>) -> Void) {
-        fetchData(api: .getComment(itemIdx: itemIdx), networkData: DefaultVO.self) { (result) in
+        fetchData(api: .writeComment(itemIdx: itemIdx, content: content), networkData: DefaultVO.self) { (result) in
             switch result {
             case .success(let successResult):
                 guard let data = successResult.resResult.message else {

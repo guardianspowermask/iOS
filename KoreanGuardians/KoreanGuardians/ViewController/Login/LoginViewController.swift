@@ -24,7 +24,10 @@ class LoginViewController: UIViewController, NibLoadable {
         skipLoginButton.setAttributedTitle(attributeString, for: .normal)
         }
     @IBAction func kakaoLogin(_ sender: Any) {
-        
+        //todo 카카오톡 로그인 구현
+        let authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoyLCJpYXQiOjE1NjU4OTAyMDcsImV4cCI6MTU2NzIwNDIwN30.QXCE0WjBcI197aL_ZqINdI7FzmrMYgn1vKjdkvOk9xs"
+        UserData.setUserDefault(value: authorization, key: .authorization)
+        self.dismiss(animated: true, completion: nil)
     } //kakao login
     @IBAction func skipLogin(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

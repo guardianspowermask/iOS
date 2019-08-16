@@ -17,12 +17,12 @@ struct Comment: Codable {
     let userCommentIdx: Int?
     let name: String?
     let itemIdx, userIdx: Int?
-    let content, date: String?
+    let comment, date: String?
     enum CodingKeys: String, CodingKey {
         case userCommentIdx = "user_comment_idx"
         case name
         case itemIdx = "item_idx"
         case userIdx = "user_idx"
-        case content, date
+        case comment, date
     }
 }

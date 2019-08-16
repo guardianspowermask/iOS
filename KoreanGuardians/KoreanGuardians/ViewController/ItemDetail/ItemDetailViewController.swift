@@ -21,12 +21,12 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
     @IBOutlet private weak var textfieldBackgroundView: UIView!
     @IBOutlet private weak var commentTextfield: UITextField!
     @IBOutlet private weak var feedbackButton: UIButton!
-    var selectedItemInfo: (index: Int?, name: String?, store: String?, image: String?)?
+    var selectedItemInfo: (index: Int?, name: String?, store: String?, image: String?, feedbackFlag: Int?, reportFlag: Bool?)?
     private var keyboardDismissGesture: UITapGestureRecognizer?
-    var sampleComments: [String] = ["hi", "sujin"] {
+    var comments: [Comment] = [] {
         didSet {
             self.tableView.reloadData()
-            self.reportCountLabel.text = "1"
+            self.reportCountLabel.text = comments.count.description
             self.setDefaultView()
         }
     }
@@ -38,6 +38,7 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
         super.viewDidLoad()
         setTableView()
         setUI()
+        setData()
         setupNavigationbar()
         setTextField()
         registerForKeyboardEvents()
@@ -49,12 +50,21 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
     deinit {
         unregisterFromKeyboardEvents()
     }
+    @IBAction func toFeedback(_ sender: Any) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let feedbackVC = mainStoryboard.viewController(FeedbackViewController.self)
+        feedbackVC.selectedItemInfo = (self.selectedItemInfo?.index, self.selectedItemInfo?.store)
+        self.viewController.present(feedbackVC, animated: true)
+    }
     @IBAction func commentAction(_ sender: Any) {
-        //if login
-        if !UserData.isUserLogin {
-            showLoginAlert()
+        if let reportFlag = selectedItemInfo?.reportFlag, let itemIdx = selectedItemInfo?.index {
+            if reportFlag {
+                self.simpleAlert(title: "", message: "항의는 한 번만 할 수 있습니다.")
+            } else {
+                self.writeComment(itemIdx: itemIdx, content: commentTextfield.text ?? "")
+            }
         } else {
-            print("\(String(describing: commentTextfield.text))로 통신")
+            showLoginAlert()
         }
     }
     func setupNavigationbar() {
@@ -75,9 +85,18 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
         self.itemNameLabel.text = selectedItemInfo.name
         self.itemStoreLabel.text = "제조사 / \(selectedItemInfo.store ?? "")"
         self.textfieldBackgroundView.makeRounded(cornerRadius: self.textfieldBackgroundView.frame.height/2)
-        let feedbackImageName = "grayFeedback"
-        self.feedbackButton.setImage(UIImage(named: feedbackImageName), for: .normal)
+        if let feedbackFlag = selectedItemInfo.feedbackFlag {
+            let feedbackImageName = feedbackFlag == 0 ? "grayFeedback" : "buFeedback"
+            self.feedbackButton.isUserInteractionEnabled = feedbackFlag == 1
+            self.feedbackButton.setImage(UIImage(named: feedbackImageName), for: .normal)
+        }
         self.setDefaultView()
+    }
+    func setData() {
+        guard let selectedItemInfo = self.selectedItemInfo, let itemIdx = selectedItemInfo.index else {
+            return
+        }
+        self.getComment(itemIdx: itemIdx)
     }
     func setTextField() {
         self.commentTextfield.delegate = self
@@ -88,17 +107,17 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
         })
     }
     func setDefaultView() {
-        self.defaultView.isHidden = sampleComments.count > 0
+        self.defaultView.isHidden = comments.count > 0
     }
 }
 
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleComments.count
+        return comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.cell(for: ItemDetailTableViewCell.self)
-        cell.configure(data: sampleComments[indexPath.row], row: indexPath.row)
+        cell.configure(data: comments[indexPath.row], row: indexPath.row)
         cell.setCallback {[weak self] (row: Int) in
             guard let self = self else {
                 return
@@ -106,14 +125,21 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
             if !UserData.isUserLogin {
                 self.showLoginAlert()
             } else {
-                self.showReportAlert(index: row)
-                //self.reportItem(row: row, itemIdx: self.items[row].itemIdx)
+                guard let commentIdx = self.comments[row].userCommentIdx else {
+                    return
+                }
+                self.showReportAlert(index: commentIdx)
             }
         }
         return cell
     }
     func showReportAlert(index: Int) {
-        let reportAction: [String: ((UIAlertAction) -> Void)?] = ["신고": {(_) in print("reportreport")}]
+        let reportAction: [String: ((UIAlertAction) -> Void)?] = ["신고": {[weak self] (_) in
+            guard let self = self else {
+                return
+            }
+            self.reportComment(commentIdx: index)
+            }]
         self.simpleActionSheet(title: nil, message: nil, okTitle: "확인", actions: [reportAction])
     }
 }
@@ -121,15 +147,8 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource {
 //textField
 extension ItemDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let searchString = textField.text {
-            print("enter 누름")
-        }
+        commentAction(textField)
         return true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if !UserData.isUserLogin {
-            showLoginAlert()
-        }
     }
 }
 
@@ -151,5 +170,70 @@ extension ItemDetailViewController: KeyboardObserving {
             }
         })
         self.view.layoutIfNeeded()
+    }
+}
+
+// 통신
+extension ItemDetailViewController {
+    func writeComment(itemIdx: Int, content: String) {
+        NetworkManager.sharedInstance.writeComment(itemIdx: itemIdx, content: content) { [weak self] (res) in
+            guard let self = self else {
+                return
+            }
+            switch res {
+            case .success:
+                self.simpleAlert(title: "성공", message: "성공적으로 항의 댓글을 등록했습니다")
+                self.commentTextfield.text = ""
+                self.selectedItemInfo?.reportFlag = true
+                self.setData()
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail:
+                    self.simpleAlert(title: "오류", message: "네트워크 연결상태를 확인해주세요")
+                case .networkError(let msg):
+                    self.simpleAlert(title: "오류", message: "잠시후 다시 시도해주세요")
+                    print("error log is "+msg)
+                }
+            }
+        }
+    }
+    func getComment(itemIdx: Int) {
+        NetworkManager.sharedInstance.getComment(itemIdx: itemIdx) { [weak self] (res) in
+            guard let self = self else {
+                return
+            }
+            switch res {
+            case .success(let comments):
+                self.comments = comments
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail:
+                    self.simpleAlert(title: "오류", message: "네트워크 연결상태를 확인해주세요")
+                case .networkError(let msg):
+                    self.simpleAlert(title: "오류", message: "잠시후 다시 시도해주세요")
+                    print("error log is "+msg)
+                }
+            }
+        }
+    }
+    //todo - 신고 api 확인
+    func reportComment(commentIdx: Int) {
+        NetworkManager.sharedInstance.reportComment(commentIdx: commentIdx) { [weak self] (res) in
+            guard let self = self else {
+                return
+            }
+            switch res {
+            case .success:
+                self.simpleAlert(title: "성공", message: "신고가 접수되었습니다")
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail:
+                    self.simpleAlert(title: "오류", message: "네트워크 연결상태를 확인해주세요")
+                case .networkError(let msg):
+                    self.simpleAlert(title: "오류", message: "잠시후 다시 시도해주세요")
+                    print("error log is "+msg)
+                }
+            }
+        }
     }
 }
