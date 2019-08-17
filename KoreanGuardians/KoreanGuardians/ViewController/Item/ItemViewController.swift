@@ -15,11 +15,11 @@ class ItemViewController: UIViewController, NibLoadable {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var itemCountLabel: UILabel!
     @IBOutlet private weak var orderLabel: UILabel!
-    //var selectedItemIdxToReport: Int?
     var categories: [Category] = []
     var items: [Item] = [] {
         didSet {
             self.tableView.reloadData()
+            self.tableView.scrollToNearestSelectedRow(at: .middle, animated: true)
         }
     }
     var selectedCategoryRow: Int = 0
@@ -31,6 +31,8 @@ class ItemViewController: UIViewController, NibLoadable {
         setCollectionView()
         setTableView()
         selectInitialCategory()
+    }
+    override func viewWillAppear(_ animated: Bool) {
         getItems()
     }
     @IBAction func sortAction(_ sender: Any) {
