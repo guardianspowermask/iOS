@@ -204,7 +204,7 @@ extension ItemDetailViewController {
             }
             switch res {
             case .success(let comments):
-                self.comments = comments
+                self.comments = comments.reversed()
             case .failure(let type):
                 switch type {
                 case .networkConnectFail:
