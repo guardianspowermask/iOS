@@ -14,6 +14,7 @@
 		3B1FD4CA2306F6D2007C915C /* LoginVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1FD4C92306F6D2007C915C /* LoginVO.swift */; };
 		3B1FD4CC2306F773007C915C /* CommentVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1FD4CB2306F773007C915C /* CommentVO.swift */; };
 		3B1FD4CE2306F77C007C915C /* FeedbackVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1FD4CD2306F77C007C915C /* FeedbackVO.swift */; };
+		3B1FD50B2308741E007C915C /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1FD50A2308741E007C915C /* KakaoOpenSDK.framework */; };
 		3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CBC22E9308D00FFAEB2 /* CategoryViewController.swift */; };
 		3B373CC022E9332800FFAEB2 /* CategoryVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CBF22E9332800FFAEB2 /* CategoryVO.swift */; };
 		3B373CC222E9338000FFAEB2 /* ItemVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CC122E9338000FFAEB2 /* ItemVO.swift */; };
@@ -29,7 +30,6 @@
 		3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90323030295004D7949 /* KeyboardObserving.swift */; };
 		3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90923030309004D7949 /* Notification+Extension.swift */; };
 		3B6CB90D230308B5004D7949 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */; };
-		3B6CBA7E23031F4E004D7949 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */; };
 		3B6CBA81230329E0004D7949 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA80230329E0004D7949 /* LoginViewController.swift */; };
 		3B6CBA85230338B3004D7949 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA84230338B3004D7949 /* UserData.swift */; };
 		3B6CBA8723033A74004D7949 /* LoginEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA8623033A74004D7949 /* LoginEntry.swift */; };
@@ -65,6 +65,7 @@
 		3B1FD4C92306F6D2007C915C /* LoginVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVO.swift; sourceTree = "<group>"; };
 		3B1FD4CB2306F773007C915C /* CommentVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVO.swift; sourceTree = "<group>"; };
 		3B1FD4CD2306F77C007C915C /* FeedbackVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVO.swift; sourceTree = "<group>"; };
+		3B1FD50A2308741E007C915C /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		3B373CBC22E9308D00FFAEB2 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		3B373CBF22E9332800FFAEB2 /* CategoryVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVO.swift; sourceTree = "<group>"; };
 		3B373CC122E9338000FFAEB2 /* ItemVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemVO.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		3B6CB90323030295004D7949 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
 		3B6CB90923030309004D7949 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		3B6CBA80230329E0004D7949 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3B6CBA84230338B3004D7949 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		3B6CBA8623033A74004D7949 /* LoginEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntry.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */,
-				3B6CBA7E23031F4E004D7949 /* KakaoOpenSDK.framework in Frameworks */,
+				3B1FD50B2308741E007C915C /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +293,7 @@
 		7DF62C6EE5E77B61A082ACED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */,
+				3B1FD50A2308741E007C915C /* KakaoOpenSDK.framework */,
 				61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */,
 			);
 			name = Frameworks;

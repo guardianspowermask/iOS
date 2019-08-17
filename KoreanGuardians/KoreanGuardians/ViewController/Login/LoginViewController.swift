@@ -23,11 +23,53 @@ class LoginViewController: UIViewController, NibLoadable {
                                                         attributes: skipLoginButtonAttr)
         skipLoginButton.setAttributedTitle(attributeString, for: .normal)
         }
+    func getUserInfo(completion: @escaping ((id: String, nickName: String)?) -> Void) {
+        KOSessionTask.userMeTask { (error, me) in
+            if let error = error as NSError? {
+                print(error)
+                completion(nil)
+            } else if let me = me as KOUserMe?, let id = me.id, let nickName = me.nickname {
+                completion((id, nickName))
+            }
+        }
+    }
     @IBAction func kakaoLogin(_ sender: Any) {
-        //todo 카카오톡 로그인 구현
-        let authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoyLCJpYXQiOjE1NjU4OTAyMDcsImV4cCI6MTU2NzIwNDIwN30.QXCE0WjBcI197aL_ZqINdI7FzmrMYgn1vKjdkvOk9xs"
-        UserData.setUserDefault(value: authorization, key: .authorization)
-        self.dismiss(animated: true, completion: nil)
+        guard let session = KOSession.shared() else {
+            return
+        }
+        if session.isOpen() {
+            session.close()
+        }
+        session.open(completionHandler: { [weak self] (error) -> Void in
+            guard let self = self else {
+                return
+            }
+            if error == nil {
+                if session.isOpen() {
+                    self.getUserInfo(completion: { (userInfo) in
+                        guard let userInfo = userInfo else {
+                            return
+                        }
+                        print(userInfo.nickName)
+                        self.login(kakaoId: userInfo.id, userName: userInfo.nickName)
+                    })
+                } else {
+                    print("Login failed")
+                }
+            } else {
+                print("Login error : \(String(describing: error))")
+            }
+            if !session.isOpen() {
+                if let error = error as NSError? {
+                    switch error.code {
+                    case Int(KOErrorCancelled.rawValue):
+                        break
+                    default:
+                        break
+                    }
+                }
+            }
+        })
     } //kakao login
     @IBAction func skipLogin(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
