@@ -16,10 +16,23 @@ class ItemViewController: UIViewController, NibLoadable {
     @IBOutlet private weak var itemCountLabel: UILabel!
     @IBOutlet private weak var orderLabel: UILabel!
     var categories: [Category] = []
+    var isStorePosition = false
     var items: [Item] = [] {
         didSet {
-            self.tableView.reloadData()
-            self.tableView.scrollToNearestSelectedRow(at: .middle, animated: true)
+            if isStorePosition {
+                //Step 1 Detect & Store
+                let topWillBeAt = getTopVisibleRow()
+                let oldHeightDifferenceBetweenTopRowAndNavBar = heightDifferenceBetweenTopRowAndNavBar()
+                //Step 2 reload
+                self.tableView.reloadData()
+                //Step 3 Restore Scrolling
+                tableView.scrollToRow(at: IndexPath(row: topWillBeAt, section: 0), at: .top, animated: false)
+                tableView.contentOffset.y -= oldHeightDifferenceBetweenTopRowAndNavBar
+            } else {
+                self.tableView.reloadData()
+                let indexPath = NSIndexPath(row: NSNotFound, section: 0)
+                self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
+            }
         }
     }
     var selectedCategoryRow: Int = 0
@@ -33,8 +46,9 @@ class ItemViewController: UIViewController, NibLoadable {
         selectInitialCategory()
     }
     override func viewWillAppear(_ animated: Bool) {
-        getItems()
+        getItems(isStorePosition: true)
     }
+
     @IBAction func sortAction(_ sender: Any) {
         let popularSort: [String: ((UIAlertAction) -> Void)?] = ["인기순": {(_) in sortAction(sort: 0)}]
         let latestSort: [String: ((UIAlertAction) -> Void)?] = ["최신순": {(_) in sortAction(sort: 1)}]
@@ -42,7 +56,7 @@ class ItemViewController: UIViewController, NibLoadable {
         self.simpleActionSheet(title: "정렬기준을 선택하세요", message: nil, okTitle: "취소", actions: [popularSort, latestSort, nameSort])
         func sortAction(sort: Int) {
             selectedOrder = sort
-            getItems()
+            getItems(isStorePosition: false)
         }
     }
     func selectInitialCategory() {
@@ -75,7 +89,7 @@ extension ItemViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
         selectedCategoryIdx = categories[indexPath.row].categoryIdx ?? 0
-        getItems()
+        getItems(isStorePosition: false)
     }
 }
 
@@ -109,11 +123,12 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: network
 extension ItemViewController: AlertUsable {
-    func getItems() {
+    func getItems(isStorePosition: Bool) {
         NetworkManager.sharedInstance.getItem(categoryIdx: selectedCategoryIdx, order: selectedOrder) { [weak self] (res) in
             guard let `self` = self else {
                 return
             }
+            self.isStorePosition = isStorePosition
             switch res {
             case .success(let data):
                 self.items = data.items ?? []
@@ -140,5 +155,27 @@ extension ItemViewController: AlertUsable {
                 }
             }
         }
+    }
+}
+//TableView Scroll
+extension ItemViewController {
+    func getTopVisibleRow () -> Int {
+        //We need this to accounts for the translucency below the nav bar
+        let navBar = navigationController?.navigationBar
+        let whereIsNavBarInTableView = tableView.convert(navBar?.bounds ?? CGRect(x: 0, y: 0, width: 0, height: 0), from: navBar)
+        let pointWhereNavBarEnds = CGPoint(x: 0, y: whereIsNavBarInTableView.origin.y + whereIsNavBarInTableView.size.height + 1)
+        let accurateIndexPath = tableView.indexPathForRow(at: pointWhereNavBarEnds)
+        return accurateIndexPath?.row ?? 0
+    }
+    
+    func heightDifferenceBetweenTopRowAndNavBar()-> CGFloat{
+        let rectForTopRow = tableView.rectForRow(at:IndexPath(row:  getTopVisibleRow(), section: 0))
+        let navBar = navigationController?.navigationBar
+        let whereIsNavBarInTableView = tableView.convert(navBar?.bounds ?? CGRect(x: 0, y: 0, width: 0, height: 0), from: navBar)
+        let pointWhereNavBarEnds = CGPoint(x: 0, y: whereIsNavBarInTableView.origin.y + whereIsNavBarInTableView.size.height)
+        let rectForTopRowY = rectForTopRow.origin.y
+        let pointWhereNavBarEndsY = pointWhereNavBarEnds.y
+        let differenceBetweenTopRowAndNavBar = rectForTopRowY - pointWhereNavBarEndsY
+        return differenceBetweenTopRowAndNavBar
     }
 }

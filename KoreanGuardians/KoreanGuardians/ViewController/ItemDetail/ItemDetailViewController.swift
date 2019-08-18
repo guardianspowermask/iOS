@@ -216,7 +216,7 @@ extension ItemDetailViewController {
             }
         }
     }
-    //todo - 신고 api 확인
+
     func reportComment(commentIdx: Int) {
         NetworkManager.sharedInstance.reportComment(commentIdx: commentIdx) { [weak self] (res) in
             guard let self = self else {
