@@ -53,10 +53,11 @@ extension FeedbackViewController: AlertUsable {
                 KingfisherManager.shared.retrieveImage(with: feedbackImgURL, options: nil, progressBlock: nil, completionHandler: { image, error, _, _ in
                     if error == nil {
                         self.feedbackImage.image = image
-                        guard let imageHeight = image?.size.height else {
+                        guard let originalImageWidth = image?.size.width, let originalImageHeight = image?.size.height else {
                             return
                         }
-                        self.imageHeight.constant = imageHeight
+                        let imageViewWidth = self.feedbackImage.frame.width
+                        self.imageHeight.constant = (imageViewWidth * originalImageHeight) / originalImageWidth
                     }
                 })
             case .failure(let type):
