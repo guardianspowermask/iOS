@@ -16,11 +16,11 @@ class CategoryCollectionViewCell: UICollectionViewCell, NibLoadable {
     @IBOutlet weak var categoryReplacementLabel: UILabel!
     private var isOdd: Bool = true
     func configure(data: Category, isOdd: Bool) {
-        self.categoryImageView.kf.setImage(with: URL(string: data.img))
+        self.categoryImageView.kf.setImage(with: URL(string: data.img ?? ""))
         self.categoryName.text = data.name
-        self.categoryCount.text = data.itemCnt.description
+        self.categoryCount.text = data.itemCnt?.description
         var replacemetWord = ""
-        for word in data.replaceWords {
+        for word in data.replaceWords ?? [""] {
             replacemetWord += "#\(word) "
         }
         self.categoryReplacementLabel.text = replacemetWord

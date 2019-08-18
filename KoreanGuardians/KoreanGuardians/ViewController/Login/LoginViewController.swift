@@ -23,8 +23,17 @@ class LoginViewController: UIViewController, NibLoadable {
                                                         attributes: skipLoginButtonAttr)
         skipLoginButton.setAttributedTitle(attributeString, for: .normal)
         }
+    func getUserInfo(completion: @escaping ((id: String, nickName: String)?) -> Void) {
+        KOSessionTask.userMeTask { (error, me) in
+            if let error = error as NSError? {
+                print(error)
+                completion(nil)
+            } else if let me = me as KOUserMe?, let id = me.id, let nickName = me.nickname {
+                completion((id, nickName))
+            }
+        }
+    }
     @IBAction func kakaoLogin(_ sender: Any) {
-        //이전 카카오톡 세션 열려있으면 닫기
         guard let session = KOSession.shared() else {
             return
         }
@@ -37,11 +46,13 @@ class LoginViewController: UIViewController, NibLoadable {
             }
             if error == nil {
                 if session.isOpen() {
-                    //accessToken
-                    if let accessToken = session.token?.accessToken {
-                        UserData.setUserDefault(value: accessToken, key: .accessToken)
-                        self.dismiss(animated: true, completion: nil)
-                    }
+                    self.getUserInfo(completion: { (userInfo) in
+                        guard let userInfo = userInfo else {
+                            return
+                        }
+                        print(userInfo.nickName)
+                        self.login(kakaoId: userInfo.id, userName: userInfo.nickName)
+                    })
                 } else {
                     print("Login failed")
                 }
@@ -54,8 +65,7 @@ class LoginViewController: UIViewController, NibLoadable {
                     case Int(KOErrorCancelled.rawValue):
                         break
                     default:
-                        //간편 로그인 취소
-                        print("error : \(error.description)")
+                        break
                     }
                 }
             }
@@ -63,5 +73,28 @@ class LoginViewController: UIViewController, NibLoadable {
     } //kakao login
     @IBAction func skipLogin(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension LoginViewController: AlertUsable {
+    func login(kakaoId: String, userName: String) {
+        NetworkManager.sharedInstance.login(kakaoId: kakaoId, userName: userName) { [weak self] (res) in
+            guard let `self` = self else {
+                return
+            }
+            switch res {
+            case .success(let authorization):
+                UserData.setUserDefault(value: authorization, key: .authorization)
+                self.dismiss(animated: true, completion: nil)
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail:
+                    self.simpleAlert(title: "오류", message: "네트워크 연결상태를 확인해주세요")
+                case .networkError(let msg):
+                    self.simpleAlert(title: "오류", message: "잠시후 다시 시도해주세요")
+                    print("error log is "+msg)
+                }
+            }
+        }
     }
 }

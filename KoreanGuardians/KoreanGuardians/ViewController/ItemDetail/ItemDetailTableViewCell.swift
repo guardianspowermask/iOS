@@ -28,11 +28,24 @@ class ItemDetailTableViewCell: UITableViewCell, NibLoadable {
     func setCallback(callback:@escaping (_ row: Int) -> Void) {
         reportItemBlock = callback
     }
-    func configure(data: String, row: Int) {
-        nameLabel.text = data
-        contentLabel.text = data
-        dateLabel.text = data
+    func configure(data: Comment, row: Int) {
+        nameLabel.text = data.name
+        contentLabel.text = data.comment
+        if let date = data.date {
+            if date.count > 15 {
+                //15 글자 이상인거 date formatting 처리
+                let year = String(date.prefix(4))
+                let monthStartIdx = date.index(date.startIndex, offsetBy: 5)
+                let monthEndIdx = date.index(date.startIndex, offsetBy: 6)
+                let dayStartIdx = date.index(date.startIndex, offsetBy: 8)
+                let dayEndIdx = date.index(date.startIndex, offsetBy: 9)
+                let month = String(date[monthStartIdx...monthEndIdx])
+                let day = String(date[dayStartIdx...dayEndIdx])
+                dateLabel.text = "\(year) \(month)/\(day)"
+            } else {
+                dateLabel.text = data.date
+            }
+        }
         self.row = row
     }
 }
-

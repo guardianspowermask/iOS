@@ -9,13 +9,13 @@
 import Foundation
 
 struct ItemVO: Codable {
-    let message: String
-    let data: ItemData
+    let message: String?
+    let data: ItemData?
 }
 
 struct ItemData: Codable {
-    let totalCnt: Int
-    let items: [Item]
+    let totalCnt: Int?
+    let items: [Item]?
     enum CodingKeys: String, CodingKey {
         case totalCnt = "total_cnt"
         case items
@@ -23,14 +23,18 @@ struct ItemData: Codable {
 }
 
 struct Item: Codable {
-    let itemIdx: Int
-    let name, img: String
-    let reportCnt: Int
-    let store, email, facebook: String
+    let itemIdx: Int?
+    let name, img: String?
+    let reportCnt: Int?
+    let store: String?
+    let feedbackFlag: Int?
+    let reportFlag: Bool?
     enum CodingKeys: String, CodingKey {
         case itemIdx = "item_idx"
         case name, img
         case reportCnt = "report_cnt"
-        case store, email, facebook
+        case store
+        case feedbackFlag = "feedback_flag"
+        case reportFlag = "report_flag"
     }
 }

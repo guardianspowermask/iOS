@@ -11,6 +11,10 @@
 		3B0ED3A422F0D6B700F9D1F6 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B0ED3A122F0D6B600F9D1F6 /* NotoSansKR-Light.otf */; };
 		3B0ED3A522F0D6B700F9D1F6 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B0ED3A222F0D6B600F9D1F6 /* NotoSansKR-Medium.otf */; };
 		3B0ED3A622F0D6B700F9D1F6 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B0ED3A322F0D6B600F9D1F6 /* NotoSansKR-Regular.otf */; };
+		3B1FD4CA2306F6D2007C915C /* LoginVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1FD4C92306F6D2007C915C /* LoginVO.swift */; };
+		3B1FD4CC2306F773007C915C /* CommentVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1FD4CB2306F773007C915C /* CommentVO.swift */; };
+		3B1FD4CE2306F77C007C915C /* FeedbackVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1FD4CD2306F77C007C915C /* FeedbackVO.swift */; };
+		3B1FD50B2308741E007C915C /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1FD50A2308741E007C915C /* KakaoOpenSDK.framework */; };
 		3B373CBD22E9308D00FFAEB2 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CBC22E9308D00FFAEB2 /* CategoryViewController.swift */; };
 		3B373CC022E9332800FFAEB2 /* CategoryVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CBF22E9332800FFAEB2 /* CategoryVO.swift */; };
 		3B373CC222E9338000FFAEB2 /* ItemVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B373CC122E9338000FFAEB2 /* ItemVO.swift */; };
@@ -26,7 +30,6 @@
 		3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90323030295004D7949 /* KeyboardObserving.swift */; };
 		3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90923030309004D7949 /* Notification+Extension.swift */; };
 		3B6CB90D230308B5004D7949 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */; };
-		3B6CBA7E23031F4E004D7949 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */; };
 		3B6CBA81230329E0004D7949 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA80230329E0004D7949 /* LoginViewController.swift */; };
 		3B6CBA85230338B3004D7949 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA84230338B3004D7949 /* UserData.swift */; };
 		3B6CBA8723033A74004D7949 /* LoginEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CBA8623033A74004D7949 /* LoginEntry.swift */; };
@@ -59,6 +62,10 @@
 		3B0ED3A122F0D6B600F9D1F6 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		3B0ED3A222F0D6B600F9D1F6 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		3B0ED3A322F0D6B600F9D1F6 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		3B1FD4C92306F6D2007C915C /* LoginVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVO.swift; sourceTree = "<group>"; };
+		3B1FD4CB2306F773007C915C /* CommentVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVO.swift; sourceTree = "<group>"; };
+		3B1FD4CD2306F77C007C915C /* FeedbackVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVO.swift; sourceTree = "<group>"; };
+		3B1FD50A2308741E007C915C /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		3B373CBC22E9308D00FFAEB2 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		3B373CBF22E9332800FFAEB2 /* CategoryVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVO.swift; sourceTree = "<group>"; };
 		3B373CC122E9338000FFAEB2 /* ItemVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemVO.swift; sourceTree = "<group>"; };
@@ -74,7 +81,6 @@
 		3B6CB90323030295004D7949 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
 		3B6CB90923030309004D7949 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		3B6CB90C230308B5004D7949 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		3B6CBA80230329E0004D7949 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3B6CBA84230338B3004D7949 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		3B6CBA8623033A74004D7949 /* LoginEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntry.swift; sourceTree = "<group>"; };
@@ -117,20 +123,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF8D4FAC6E4F5475F1CD12C /* Pods_KoreanGuardians.framework in Frameworks */,
-				3B6CBA7E23031F4E004D7949 /* KakaoOpenSDK.framework in Frameworks */,
+				3B1FD50B2308741E007C915C /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B1FD4C82306EF29007C915C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */,
+				B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */,
+				B8F63A4A22EA48EF0063B1E0 /* Networkable.swift */,
+				B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		3B373CBE22E9330F00FFAEB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B6CBA84230338B3004D7949 /* UserData.swift */,
 				3B373CBF22E9332800FFAEB2 /* CategoryVO.swift */,
 				3B373CC122E9338000FFAEB2 /* ItemVO.swift */,
+				3B1FD4C92306F6D2007C915C /* LoginVO.swift */,
+				3B1FD4CB2306F773007C915C /* CommentVO.swift */,
+				3B1FD4CD2306F77C007C915C /* FeedbackVO.swift */,
 				3BA6817122EB5D88000166F0 /* DefaultVO.swift */,
-				3B6CBA84230338B3004D7949 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,6 +225,7 @@
 		3B775C7D22E7005A00926A8C /* KoreanGuardians */ = {
 			isa = PBXGroup;
 			children = (
+				3B1FD4C82306EF29007C915C /* Networking */,
 				3B775D1922E7333400926A8C /* Common */,
 				3B775D1E22E7342300926A8C /* Extensions */,
 				3B373CBE22E9330F00FFAEB2 /* Model */,
@@ -216,10 +237,6 @@
 				3B775C8722E7005B00926A8C /* LaunchScreen.storyboard */,
 				3B775C8A22E7005B00926A8C /* Info.plist */,
 				3B775C9822E71CD700926A8C /* InfoPlist.strings */,
-				B8F63A4A22EA48EF0063B1E0 /* Networkable.swift */,
-				B8F63A4C22EA49060063B1E0 /* NetworkManager.swift */,
-				B8F63A4E22EA49250063B1E0 /* NetworkResult.swift */,
-				B8F63A5022EA499B0063B1E0 /* GuardiansAPI.swift */,
 			);
 			path = KoreanGuardians;
 			sourceTree = "<group>";
@@ -276,7 +293,7 @@
 		7DF62C6EE5E77B61A082ACED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B6CBA7D23031F4E004D7949 /* KakaoOpenSDK.framework */,
+				3B1FD50A2308741E007C915C /* KakaoOpenSDK.framework */,
 				61F22E99684CE10F9897995B /* Pods_KoreanGuardians.framework */,
 			);
 			name = Frameworks;
@@ -441,9 +458,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B6CB90A23030309004D7949 /* Notification+Extension.swift in Sources */,
+				3B1FD4CC2306F773007C915C /* CommentVO.swift in Sources */,
 				B8F63A4D22EA49060063B1E0 /* NetworkManager.swift in Sources */,
 				B8F63A4322EA22CB0063B1E0 /* CategoryLayout.swift in Sources */,
 				B8F63A4922EA3C2E0063B1E0 /* String+Extension.swift in Sources */,
+				3B1FD4CE2306F77C007C915C /* FeedbackVO.swift in Sources */,
 				3B373CD222E98E4F00FFAEB2 /* AlertUsable.swift in Sources */,
 				3B373CD422E9945100FFAEB2 /* UIPresentable.swift in Sources */,
 				3B6CB90423030295004D7949 /* KeyboardObserving.swift in Sources */,
@@ -472,6 +491,7 @@
 				B8F63A4B22EA48EF0063B1E0 /* Networkable.swift in Sources */,
 				B8F63A4722EA3C250063B1E0 /* Data+Extension.swift in Sources */,
 				3B775D1D22E733D300926A8C /* UIStoryboard+Extension.swift in Sources */,
+				3B1FD4CA2306F6D2007C915C /* LoginVO.swift in Sources */,
 				3B373CC022E9332800FFAEB2 /* CategoryVO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

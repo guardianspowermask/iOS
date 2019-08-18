@@ -70,7 +70,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
         let itemVC = mainStoryboard.viewController(ItemViewController.self)
         itemVC.selectedCategoryRow = indexPath.row
         itemVC.categories = self.categories
-        itemVC.selectedCategoryIdx = self.categories[indexPath.row].categoryIdx
+        itemVC.selectedCategoryIdx = self.categories[indexPath.row].categoryIdx ?? 0
         self.show(itemVC, sender: nil)
     }
 }
