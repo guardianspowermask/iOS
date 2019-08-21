@@ -27,11 +27,19 @@ class ItemViewController: UIViewController, NibLoadable {
                 self.tableView.reloadData()
                 //Step 3 Restore Scrolling
                 tableView.scrollToRow(at: IndexPath(row: topWillBeAt, section: 0), at: .top, animated: false)
+                if topWillBeAt == 0 {
+                    tableView.contentOffset.y -= 40
+                    return
+                }
                 tableView.contentOffset.y -= oldHeightDifferenceBetweenTopRowAndNavBar
+                //밀리는 현상 방지
+                tableView.contentOffset.y += 44
             } else {
                 self.tableView.reloadData()
                 let indexPath = NSIndexPath(row: NSNotFound, section: 0)
                 self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
+                //tableview header 보이게
+                self.tableView.contentOffset.y -= 40
             }
         }
     }

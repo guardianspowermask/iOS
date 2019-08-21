@@ -515,7 +515,7 @@
                                                         <constraint firstAttribute="width" constant="18" id="yEA-8X-xJg"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttS-Pl-ENd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttS-Pl-ENd">
                                                     <rect key="frame" x="16" y="36.5" width="28" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="15"/>
                                                     <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>

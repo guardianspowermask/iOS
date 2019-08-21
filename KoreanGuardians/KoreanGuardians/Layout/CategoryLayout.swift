@@ -17,7 +17,7 @@ class CategoryLayout: UICollectionViewLayout {
     weak var delegate: CategoryLayoutDelegate!
     // 2
     fileprivate var numberOfRows = 1
-    fileprivate var cellPadding: CGFloat = 6
+    fileprivate var cellPadding: CGFloat = 4
     // 3
     fileprivate var cache = [UICollectionViewLayoutAttributes]()
     // 4
@@ -46,6 +46,8 @@ extension CategoryLayout {
         let height: CGFloat = 40
         var xOffset = [CGFloat](repeating: 0, count: 1)
         let insets = collectionView.contentInset
+        collectionView.contentInset.left = 12
+        collectionView.contentInset.right = 12
         let yOffset: CGFloat = CGFloat(((collectionView.bounds.height) - (insets.top + insets.bottom) - height)/2)
         // 3
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
@@ -54,7 +56,7 @@ extension CategoryLayout {
             let cellWidth = delegate.collectionView(collectionView, widthForCategoryAtIndexPath: indexPath)
             let width = cellPadding * 2 + cellWidth
             let frame = CGRect(x: xOffset[column], y: yOffset, width: width, height: height)
-            let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+            let insetFrame = frame.insetBy(dx: cellPadding, dy: 6)
             // 5
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = insetFrame
