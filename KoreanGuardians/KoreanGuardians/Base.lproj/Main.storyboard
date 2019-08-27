@@ -595,9 +595,9 @@
                                         <rect key="frame" x="16" y="12" width="382" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JN1-EE-rGs">
-                                                <rect key="frame" x="332" y="1.5" width="30" height="33"/>
+                                                <rect key="frame" x="322" y="1.5" width="60" height="33"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="oEa-Mm-nc1"/>
+                                                    <constraint firstAttribute="width" constant="60" id="7xj-rd-4sh"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                 <state key="normal" title="항의">
@@ -616,11 +616,11 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="JN1-EE-rGs" firstAttribute="leading" secondItem="fW8-CW-chQ" secondAttribute="trailing" constant="10" id="AO2-CE-kzB"/>
+                                            <constraint firstItem="JN1-EE-rGs" firstAttribute="leading" secondItem="fW8-CW-chQ" secondAttribute="trailing" id="AO2-CE-kzB"/>
                                             <constraint firstItem="JN1-EE-rGs" firstAttribute="centerY" secondItem="FaO-la-1ob" secondAttribute="centerY" id="B0I-ia-cL5"/>
                                             <constraint firstItem="fW8-CW-chQ" firstAttribute="centerY" secondItem="FaO-la-1ob" secondAttribute="centerY" id="UWy-9O-OOn"/>
                                             <constraint firstItem="fW8-CW-chQ" firstAttribute="leading" secondItem="FaO-la-1ob" secondAttribute="leading" constant="20" id="mSm-zh-iAl"/>
-                                            <constraint firstAttribute="trailing" secondItem="JN1-EE-rGs" secondAttribute="trailing" constant="20" id="u2H-kd-A4s"/>
+                                            <constraint firstAttribute="trailing" secondItem="JN1-EE-rGs" secondAttribute="trailing" id="u2H-kd-A4s"/>
                                         </constraints>
                                     </view>
                                 </subviews>

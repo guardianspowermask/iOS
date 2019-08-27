@@ -57,6 +57,7 @@ class ItemDetailViewController: UIViewController, NibLoadable, AlertUsable, Logi
         self.viewController.present(feedbackVC, animated: true)
     }
     @IBAction func commentAction(_ sender: Any) {
+        self.commentTextfield.resignFirstResponder()
         if let reportFlag = selectedItemInfo?.reportFlag, let itemIdx = selectedItemInfo?.index {
             if reportFlag {
                 self.simpleAlert(title: "", message: "항의는 한 번만 할 수 있습니다.")
@@ -161,7 +162,6 @@ extension ItemDetailViewController: KeyboardObserving {
             self.view.layoutIfNeeded()
     }
     func keyboardWillHide(_ notification: Notification) {
-        commentTextfield.text = ""
         textfieldBottomView.snp.remakeConstraints({ (make) in
             if #available(iOS 11.0, *) {
                 make.bottom.equalTo(self.view.safeAreaInsets.bottom)
